@@ -42,7 +42,7 @@
         var insert = document.getElementById("Insert");
 
         function insertarData(cuesId) {
-            set(ref(db, "Cuestionarios/" + cuesId), { 
+            set(ref(db, "cuestionarios/" + cuesId), { 
                 Titulo: titulo.value,
                 Descrip: descrip.value
             })
@@ -54,7 +54,7 @@
                 });
         }
 
-        insert.addEventListener('click', insertarData("1"));
+        insert.addEventListener('click', insertarData(1));
 
 
       </script>
