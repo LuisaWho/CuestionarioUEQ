@@ -64,48 +64,7 @@
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
-        
-        const firebaseConfig = {
-          apiKey: "AIzaSyC2Nf2saIKF-EZLoUmRbIk7AsFah1sD5n0",
-          authDomain: "ueqdatabase.firebaseapp.com",
-          projectId: "ueqdatabase",
-          storageBucket: "ueqdatabase.appspot.com",
-          messagingSenderId: "644974973593",
-          appId: "1:644974973593:web:fe016a5432e0b1d9de1e08",
-          measurementId: "G-85VR5Z8V64"
-        };
-        
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        import {getDatabase, ref, set, child, update, remove}
-        from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-
-        const db = getDatabase();
-        var titulo = document.getElementById("Titulo");
-        var descrip = document.getElementById("Descrip");
-        var genbtn = document.getElementById("Genbtn");
-
-        function insertarData(){
-            set(ref(db, "Cuestionarios/" + rollbox.value), {
-                Titulo: titulo.value,
-                Descrip: descrip.value
-            })
-            .then(() => {
-                alert("Cuestionario creado con éxito");
-            })
-            .catch((error)=> {
-                alert("Ha habido un problema en " + error);
-            });
-        }
-
-        genbtn.addEventListener('click', insertarData);
-        
-        </script>
+   
 
 </body>
 

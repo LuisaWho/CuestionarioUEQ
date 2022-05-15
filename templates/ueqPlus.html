@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head> 
+        <title>Prueba</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
+    <body>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
-    <link rel="stylesheet" href="../css/ueqPstyle.css">
+        <label>Titulo</label><input id="Titulo" type="text"> 
+        <label>Descrip</label><input id="Descrip" type="text"> 
+        <button id="Insert">Insert</button>
 
-    <title>Cuestionario UEQ | Crear UEQ+ </title>
-</head>
+        
+        
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+            
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyC2Nf2saIKF-EZLoUmRbIk7AsFah1sD5n0",
+              authDomain: "ueqdatabase.firebaseapp.com",
+              databaseURL: "https://ueqdatabase-default-rtdb.europe-west1.firebasedatabase.app",
+              projectId: "ueqdatabase",
+              storageBucket: "ueqdatabase.appspot.com",
+              messagingSenderId: "644974973593",
+              appId: "1:644974973593:web:fe016a5432e0b1d9de1e08",
+              measurementId: "G-85VR5Z8V64"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            import {getDatabase, ref, set, child, update, remove}
+            from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app-database.js";
 
-<body>
+            const db = getDatabase();
+    var titulo = document.getElementById("Titulo");
+    var descrip = document.getElementById("Descrip");
+    var insert = document.getElementById("Insert");
+
+    function insertarData(){
+        set(ref(db, "Cuestionarios/" + rollbox.value), {
+            Titulo: titulo.value,
+            Descrip: descrip.value
+        })
+        .then(() => {
+            alert("Cuestionario creado con éxito");
+        })
+        .catch((error)=> {
+            alert("Ha habido un problema en " + error);
+        });
+    }
+
+    genbtn.addEventListener('click', insertarData);  
+
+          </script>
+
+
 
 </body>
-
-
-
-
-</html>
