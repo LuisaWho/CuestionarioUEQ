@@ -11,7 +11,7 @@
     <label>Descrip</label><input id="Descrip" type="text">
 
     <hr>
-    <button id="Insert">Insert</button>
+    <button id="Insert" type = "button">Insert</button>
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -32,16 +32,17 @@
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        import { getDatabase, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+        import { getDatabase, ref, set, child, update, remove } 
+        from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
         
-        const db = getDatabase();
+    
         var titulo = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
 
         var insert = document.getElementById("Insert");
 
-        function insertarData() {
-            set(ref(db, "Cuestionarios/" + rollbox.value), {
+        function insertarData(cuesId) {
+            set(ref(db, "Cuestionarios/" + cuesId), { 
                 Titulo: titulo.value,
                 Descrip: descrip.value
             })
@@ -53,7 +54,7 @@
                 });
         }
 
-        insert.addEventListener('click', insertarData);
+        insert.addEventListener('click', insertarData("1"));
 
 
       </script>
