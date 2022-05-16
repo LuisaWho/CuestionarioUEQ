@@ -5,66 +5,87 @@
     <meta charset="UTF-8">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
-    <link rel="stylesheet" href="../css/ueqstyle.css">
+    <link rel="stylesheet" href="../css/ueqSstyle.css">
+
     <title>Cuestionario UEQ | Crear UEQ </title>
 </head>
 
 <body>
 
     <div class="cabecera">
-        <h1>Crear cuestionario UEQ</h1>
-        
-        <div class="btn">
-            <button id ="Genbtn" class="enviar" type="submit">Generar cuestionario</button>
-        </div>
-    </a>
+        <h1>Demo Cuestionario UEQ S</h1>
+
+        <a href="../templates/generado.html" class="generado">
+            <button onclick="generar()">Generar cuestionario</button>
+        </a>
 
     </div>
 
     <div class="cuestionario">
         <div class="titulo">
             <label>Título</label>
-            <input id = "Titulo" name="titulo" type="text" class="input-box" placeholder="Añade un título al proyecto" required>
+            <input type="text">
         </div>
 
         <div class="descrip">
             <label>Descripción</label>
-            <textarea id = "Descrip" name="text" class="input-box"
-                placeholder="Aquí puedes incluir información del sistema a testear, instrucciones o detalles"></textarea>
+            <textarea name="text"> </textarea>
         </div>
-        
-        <script src="../js/ueqjs.js"></script>
 
         <h3><b>Vista previa</b> de los ítems del cuestionario que se generará</h3>
 
-        <table class = "listitem">
-            <tbody>
-                <tr> 
-                    <% for(var i=0; i < items.length; i++) { %>
-                    <td><%= (i+1)%></td>
-                    <td><%=items[i].item1%></td>
-                    <td> <div class="puntuacion">
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                    </div> </td>
-                  
-                    <td><%=items[i].item2%></td>
-                  </tr>
-                  <% } %>
-            </tbody>
-        </table>
-                </div>
-            </div>
+        <div id="tablaItems"></div>
 
-        </div>
+        <script>
+            table = document.createElement('table');
+            var xml = new XMLHttpRequest();
+            xml.open("GET", "../dataxml/itemsUEQ.xml", false);
+            xml.send();
+            var xmlData = xml.responseXML;
+
+            var items = xmlData.getElementsByTagName("item");
+
+            for (var i = 0; i < items.length; i++) {
+                var tr = table.insertRow();
+                //ITEMID
+                var td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("itemID")[0].firstChild.data;
+                //PROP1
+                td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
+                //INPUTS
+                td = tr.insertCell();
+                const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
+                td.innerHTML = radio.map((radio) => `
+                <input type="radio" name="radio1" value="valor" id="radio1">`).join(' ');
+                
+                //PROP2
+                td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
+            }
+
+            var container = document.getElementById('tablaItems');
+            container.appendChild(table);
+
+            function generar() {
+                var data = new FormData();
+                data.append('user', 'person');
+                data.append('pwd', 'password');
+                data.append('organization', 'place');
+                data.append('requiredkey', 'key');
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "../dataxml/itemsUEQS.xml", true);
+                xhr.onload = function () {
+                    // do something to response
+                    console.log(this.responseText);
+                };
+                xhr.send(data);
+
+            }
+        </script>
+
     </div>
-
-   
 
 </body>
 
