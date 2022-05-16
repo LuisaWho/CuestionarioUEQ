@@ -24,12 +24,12 @@
     <div class="cuestionario">
         <div class="titulo">
             <label>Título</label>
-            <input type="text">
+            <input type="text" id="titulo">
         </div>
 
         <div class="descrip">
             <label>Descripción</label>
-            <textarea name="text"> </textarea>
+            <textarea id="descrip"> </textarea>
         </div>
 
         <h3><b>Vista previa</b> de los ítems del cuestionario que se generará</h3>
@@ -58,7 +58,7 @@
                 const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
                 td.innerHTML = radio.map((radio) => `
                 <input type="radio" name="radio1" value="valor" id="radio1">`).join(' ');
-                
+
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
@@ -68,20 +68,24 @@
             container.appendChild(table);
 
             function generar() {
-                var data = new FormData();
-                data.append('user', 'person');
-                data.append('pwd', 'password');
-                data.append('organization', 'place');
-                data.append('requiredkey', 'key');
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "../dataxml/itemsUEQS.xml", true);
-                xhr.onload = function () {
-                    // do something to response
-                    console.log(this.responseText);
+                var xmlpost = new XMLHttpRequest();
+                xmlpost.open("POST", "../dataxml/itemsUEQS.xml", true);
+                xmlpost.setRequestHeader("Content-Type", "application/xml");
+                xmlpost.setRequestHeader("Accept", "application/xml");
+                xmlpost.onreadystatechange = function () {
+                    if (xmlpost.readyState === 4) {
+                        console.log(xmlpost.status);
+                        console.log(xmlpost.responseText);
+                    }
                 };
-                xhr.send(data);
 
+                cuestionario = "<cuestionarios><cuestionario>" +
+                    "<tipo>UEQS</tipo>" + "<titulo>" + document.getElementById("titulo") + "</titulo>" +
+                    "<descrip>" + document.getElementById("descrip") + "</descrip>" +
+                    "<PIN>2005</PIN>" + "<url>Pagina<url>"
+                    "</cuestionario></cuestionarios>";
+                    
+                xmlpost.send(cuestionario);
             }
         </script>
 
