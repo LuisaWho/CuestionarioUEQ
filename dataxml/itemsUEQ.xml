@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<items>
+    <item>
+        <itemID>1</itemID>
+        <item1>Desagradable</item1>
+        <item2>Agradable</item2>
+    </item>
+    <item>
+        <itemID>2</itemID>
+        <item1>No entendible</item1>
+        <item2>Entendible</item2>
+    </item>
+    <item>
+        <itemID>3</itemID>
+        <item1>Creativo</item1>
+        <item2>Sin Imaginación</item2>
+    </item>
+    <item>
+        <itemID>4</itemID>
+        <item1>Fácil de aprender</item1>
+        <item2>Difícil de aprender</item2>
+    </item>
+    <item>
+        <itemID>5</itemID>
+        <item1>Valioso</item1>
+        <item2>De poco valor</item2>
+    </item>
+    <item>
+        <itemID>6</itemID>
+        <item1>Aburrido</item1>
+        <item2>Emocionante</item2>
+    </item>
+    <item>
+        <itemID>7</itemID>
+        <item1>No interesante</item1>
+        <item2>Interesante</item2>
+    </item>
+    <item>
+        <itemID>8</itemID>
+        <item1>Impredecible</item1>
+        <item2>Predecible</item2>
+    </item>
+    <item>
+        <itemID>9</itemID>
+        <item1>Rápido</item1>
+        <item2>Lento</item2>
+    </item>
+    <item>
+        <itemID>10</itemID>
+        <item1>Original</item1>
+        <item2>Convencional</item2>
+    </item>
+    <item>
+        <itemID>11</itemID>
+        <item1>Obstructivo</item1>
+        <item2>Impulsor de apoyo</item2>
+    </item>
+    <item>
+        <itemID>12</itemID>
+        <item1>Bueno</item1>
+        <item2>Malo</item2>
+    </item>
+    <item>
+        <itemID>13</itemID>
+        <item1>Complicado</item1>
+        <item2>Fácil</item2>
+    </item>
+    <item>
+        <itemID>14</itemID>
+        <item1>Repeler</item1>
+        <item2>Atraer</item2>
+    </item>
+    <item>
+        <itemID>15</itemID>
+        <item1>Convencional</item1>
+        <item2>Novedoso</item2>
+    </item>
+    <item>
+        <itemID>16</itemID>
+        <item1>Incómodo</item1>
+        <item2>Cómodo</item2>
+    </item>
+    <item>
+        <itemID>17</itemID>
+        <item1>Seguro</item1>
+        <item2>Inseguro</item2>
+    </item>
+    <item>
+        <itemID>18</itemID>
+        <item1>Activante</item1>
+        <item2>Adormecedor</item2>
+    </item>
+    <item>
+        <itemID>19</itemID>
+        <item1>Cubre expectativas</item1>
+        <item2>No cubre expectativas</item2>
+    </item>
+    <item>
+        <itemID>20</itemID>
+        <item1>Ineficiente</item1>
+        <item2>Eficiente</item2>
+    </item>
+    <item>
+        <itemID>21</itemID>
+        <item1>Claro</item1>
+        <item2>Confuso</item2>
+    </item>
+    <item>
+        <itemID>22</itemID>
+        <item1>No pragmático</item1>
+        <item2>Pragmático</item2>
+    </item>
+    <item>
+        <itemID>23</itemID>
+        <item1>Ordenado</item1>
+        <item2>Sobrecargado</item2>
+    </item>
+    <item>
+        <itemID>24</itemID>
+        <item1>Atractivo</item1>
+        <item2>Feo</item2>
+    </item>
+    <item>
+        <itemID>25</itemID>
+        <item1>Simpático</item1>
+        <item2>Antipático</item2>
+    </item>
+    <item>
+        <itemID>26</itemID>
+        <item1>Conservador</item1>
+        <item2>Innnovador</item2>
+    </item>
+
+</items>

@@ -6,7 +6,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
     <link rel="stylesheet" href="../css/ueqSstyle.css">
-    
+
     <title>Cuestionario UEQ | Crear UEQ </title>
 </head>
 
@@ -31,43 +31,47 @@
             <textarea name="text"> </textarea>
         </div>
 
-        <div class="listitem">
-            <div class="item">
-                <div class="texto">
-                    <p id="prop1"></p>
-                </div>
-                <div class="puntuacion">
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                    <input class="punto" type="radio" name="a" />
-                </div>
-                <div class="texto">
-                    <p id="prop2"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
+        <script>
+            table = document.createElement('table');
             var xml = new XMLHttpRequest();
-            xml.open("GET", "../dataxml/items.xml", false);
+            xml.open("GET", "../dataxml/itemsUEQS.xml", false);
             xml.send();
             var xmlData = xml.responseXML;
-            if(!xmlData)
-            {
-                xmlData=(new DOMParser()).parseFromString(xml.responseText, 'text/xml');
+            if (!xmlData) {
+                xmlData = (new DOMParser()).parseFromString(xml.responseText, 'text/xml');
             }
-            var item =  xmlData.getElementsByTagName("item");
-            var item1= item[0].getElementsByTagName("item1")[0].firstChild.data;
-            var item2= item[0].getElementsByTagName("item2")[0].firstChild.data;
-            document.write("prop1="+item1+ "<br>");
-            document.getElementById("prop1").innerHTML = item1;
-            document.getElementById("prop2").innerHTML = item2;
-    </script>
+            var items = xmlData.getElementsByTagName("item");
+
+            for (var i = 0; i < items.length; i++) {
+                var tr = table.insertRow();
+                //ITEMID
+                var td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("itemID")[0].firstChild.data;
+                //PROP1
+                td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
+                //PROP2
+                td = tr.insertCell();
+                td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
+            }
+
+            // Append it to the body?
+            document.body.appendChild(table);
+
+            /*
+            var item = xmlData.getElementsByTagName("item");
+            for (var i = 0; i < item.length; i++) {
+                var item1 = item[i].getElementsByTagName("item1")[0].firstChild.data;
+                var item2 = item[i].getElementsByTagName("item2")[0].firstChild.data;
+    
+                
+                document.getElementById("prop1").innerHTML = item1;
+                document.getElementById("prop2").innerHTML = item2;
+            }
+    
+            */
+
+        </script>
 
 </body>
 

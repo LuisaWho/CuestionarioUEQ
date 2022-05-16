@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<items>
+    <item>
+        <itemID>1</itemID>
+        <item1>Obstructivo</item1>
+        <item2>Impulsor de apoyo</item2>
+    </item>
+    <item>
+        <itemID>2</itemID>
+        <item1>Complicado</item1>
+        <item2>Fácil</item2>
+    </item>
+    <item>
+        <itemID>3</itemID>
+        <item1>Ineficiente</item1>
+        <item2>Eficiente</item2>
+    </item>
+    <item>
+        <itemID>4</itemID>
+        <item1>Confuso</item1>
+        <item2>Claro</item2>
+    </item>
+    <item>
+        <itemID>5</itemID>
+        <item1>Aburrido</item1>
+        <item2>Emocionante</item2>
+    </item>
+    <item>
+        <itemID>6</itemID>
+        <item1>No interesante</item1>
+        <item2>Interesante</item2>
+    </item>
+    <item>
+        <itemID>7</itemID>
+        <item1>Convencional</item1>
+        <item2>Original</item2>
+    </item>
+    <item>
+        <itemID>8</itemID>
+        <item1>Convencional</item1>
+        <item2>Novedoso</item2>
+    </item>
+</items>
