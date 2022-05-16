@@ -55,6 +55,9 @@
                 td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
                 //INPUTS
                 td = tr.insertCell();
+                input = document.createElement('input');
+                input.type = 'radio';
+                td.innerHTML = input;
                 
                 //PROP2
                 td = tr.insertCell();
