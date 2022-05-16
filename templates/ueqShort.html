@@ -24,7 +24,7 @@
     <div class="cuestionario">
         <div class="titulo">
             <label>Título</label>
-            <input type="text" id="titulo">
+            <input type="text" id="titulo"> </input>
         </div>
 
         <div class="descrip">
@@ -71,7 +71,7 @@
                 var xmlpost = new XMLHttpRequest();
                 xmlpost.open("POST", "../dataxml/itemsUEQS.xml");
 
-                xmlpost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlpost.setRequestHeader("Content-Type", application/x-www-form-urlencoded);
 
                 xmlpost.onreadystatechange = function () {
                     if (xmlpost.readyState === 4) {
