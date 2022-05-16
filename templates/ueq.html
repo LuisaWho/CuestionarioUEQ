@@ -56,8 +56,7 @@
                 //INPUTS
                 td = tr.insertCell();
                 const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
-                td.innerHTML = radio.map((radio) => `
-                <input type="radio" name="radio1" value="valor" id=${radio} checked>`).join(' ');
+                td.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value="valor" id=${radio}>`).join(' ');
                 
                 //PROP2
                 td = tr.insertCell();
