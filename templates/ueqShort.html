@@ -69,7 +69,7 @@
 
             function generar() {
                 var xmlpost = new XMLHttpRequest();
-                xmlpost.open("POST", "../dataxml/itemsUEQS.xml", true);
+                xmlpost.open("POST", "../dataxml/itemsUEQS.xml");
                 xmlpost.setRequestHeader("Content-Type", "application/xml");
                 xmlpost.setRequestHeader("Accept", "application/xml");
                 xmlpost.onreadystatechange = function () {
