@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/clipboard2-heart-fill.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
     <link rel="stylesheet" href="../css/respstyle.css">
 
     <title>Cuestionario UEQ | Crear UEQ </title>
@@ -21,34 +21,9 @@
             <p>Este cuestionario consiste en....</p>
         </div>
 
-        <table class = "listitem">
-            <tbody>
-                <tr> 
-                    <% for(var i=0; i < 7; i++) { %>
-                    <td><%= (i+1)%></td>
-                    <td><%=items[i].item1%></td>
-                    <td> <div class="puntuacion">
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                        <input class="punto" type="radio" name="a" />
-                    </div> </td>
-                  
-                    <td><%=items[i].item2%></td>
-                  </tr>
-                  <% } %>
-            </tbody>
-        </table>
+        
 
-            <a href="/responsepag2" class="sig">
-            <div class="btn">
-                <button class="sig" type="submit">Siguiente</button>   
-               
-            </div>
-        </a>
+            
             
         </div>
 
