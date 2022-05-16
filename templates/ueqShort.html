@@ -33,7 +33,7 @@
             <textarea name="text"> </textarea>
         </div>
 
-        <h3><b>Vista previa1</b> de los ítems del cuestionario que se generará</h3>
+        <h3><b>Vista previa</b> de los ítems del cuestionario que se generará</h3>
 
         <div id="tablaItems"></div>
 
@@ -58,7 +58,6 @@
                 td = tr.insertCell();
                 var input = document.createElement("input");
                 input.setAttribute("type", "radio");
-                td.innerHTML = getElementById("input");
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
@@ -68,11 +67,6 @@
             container.appendChild(table);
 
             function generar() {
-                var xml = new XMLHttpRequest();
-                xml.open("POST", "../dataxml/cuestionario.xml", false);
-                xml.send();
-                var xmlData = xml.responseXML;
-
             }
         </script>
 
