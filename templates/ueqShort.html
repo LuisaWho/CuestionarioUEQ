@@ -14,9 +14,11 @@
 
     <div class="cabecera">
         <h1>Demo Cuestionario UEQ S</h1>
+        <a href="../templates/generado.html" class="generado">
         <div class="btn">
             <button onclick="generar()">Generar cuestionario</button>
         </div>
+        </a>
 
     </div>
 
@@ -31,7 +33,7 @@
             <textarea name="text"> </textarea>
         </div>
 
-        <h3><b>Vista previa</b> de los ítems del cuestionario que se generará</h3>
+        <h3><b>Vista previa1</b> de los ítems del cuestionario que se generará</h3>
 
         <div id="tablaItems"></div>
 
@@ -41,9 +43,7 @@
             xml.open("GET", "../dataxml/itemsUEQS.xml", false);
             xml.send();
             var xmlData = xml.responseXML;
-            if (!xmlData) {
-                xmlData = (new DOMParser()).parseFromString(xml.responseText, 'text/xml');
-            }
+            
             var items = xmlData.getElementsByTagName("item");
 
             for (var i = 0; i < items.length; i++) {
@@ -58,7 +58,7 @@
                 td = tr.insertCell();
                 var input = document.createElement("input");
                 input.setAttribute("type", "radio");
-                td.innerHTML = input;
+                td.innerHTML = getElementById("input");
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
@@ -67,7 +67,11 @@
             var container = document.getElementById('tablaItems');
             container.appendChild(table);
 
-            function generar(){
+            function generar() {
+                var xml = new XMLHttpRequest();
+                xml.open("POST", "../dataxml/cuestionario.xml", false);
+                xml.send();
+                var xmlData = xml.responseXML;
 
             }
         </script>
