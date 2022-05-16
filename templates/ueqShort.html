@@ -58,20 +58,16 @@
                 td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
                 //INPUTS
                 td = tr.insertCell();
-                td.innerHTML = createRadioElement(radio1,"false");
-                td.innerHTML = createRadioElement(radio2,"false");
-                td.innerHTML = createRadioElement(radio3,"false");
-                td.innerHTML = createRadioElement(radio4,"false");
-                td.innerHTML = createRadioElement(radio5,"false");
-                td.innerHTML = createRadioElement(radio6,"false");
-                td.innerHTML = createRadioElement(radio7,"false");
+                input = document.createElement('input');
+                input.type = 'radio';
+                input.id = 'radio1';
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
             }
 
             // Append it to the body?
-            document.getElementById("tablaItems") = table;
+            document.body.appendChild(table);
 
             function createRadioElement(name, checked) {
                 var radioHtml = '<input type="radio" name="' + name + '"';
