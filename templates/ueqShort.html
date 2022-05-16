@@ -55,9 +55,10 @@
                 td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
                 //INPUTS
                 td = tr.insertCell();
-                input = document.createElement('input');
-                input.type = 'radio';
-                td.innerHTML = input;
+                const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
+                td.innerHTML = radio.map((radio) => `<div>
+                <input type="radio" name="radio1" value="valor" id="radio1">
+                </div>`).join(' ');
                 
                 //PROP2
                 td = tr.insertCell();
