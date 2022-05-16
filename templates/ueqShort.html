@@ -36,13 +36,8 @@
 
         <div id="tablaItems"></div>
 
-        <input class="punto" type="radio" name="a" />
-
         <script>
             table = document.createElement('table');
-            input = document.createElement("input");
-            input.setAttribute("type", "radio");
-
             var xml = new XMLHttpRequest();
             xml.open("GET", "../dataxml/itemsUEQS.xml", false);
             xml.send();
@@ -60,8 +55,8 @@
                 td.innerHTML = items[i].getElementsByTagName("item1")[0].firstChild.data;
                 //INPUTS
                 td = tr.insertCell();
-                
-                
+                td.createElement("input");
+                td.setAttribute("type", "radio");
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
