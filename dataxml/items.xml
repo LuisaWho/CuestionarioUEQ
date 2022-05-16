@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<items>
+    <item>
+        <item1>Desagradable</item1>
+        <item2>Agradable</item2>
+    </item>
+    <item>
+        <item1>No entendible</item1>
+        <item2>Entendible</item2>
+    </item>
+    <item>
+        <item1>Creativo</item1>
+        <item2>Sin Imaginación</item2>
+    </item>
+</items>
