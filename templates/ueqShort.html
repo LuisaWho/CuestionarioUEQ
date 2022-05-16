@@ -33,6 +33,10 @@
 
         <h3><b>Vista previa</b> de los ítems del cuestionario que se generará</h3>
 
+        <table id="tablaItems">
+
+        </table>
+
         <script>
             table = document.createElement('table');
             var xml = new XMLHttpRequest();
@@ -61,14 +65,13 @@
                 td.innerHTML = createRadioElement(radio5,"false");
                 td.innerHTML = createRadioElement(radio6,"false");
                 td.innerHTML = createRadioElement(radio7,"false");
-
                 //PROP2
                 td = tr.insertCell();
                 td.innerHTML = items[i].getElementsByTagName("item2")[0].firstChild.data;
             }
 
             // Append it to the body?
-            document.body.appendChild(table);
+            document.getElementById("tablaItems") = table;
 
             function createRadioElement(name, checked) {
                 var radioHtml = '<input type="radio" name="' + name + '"';
