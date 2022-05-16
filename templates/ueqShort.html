@@ -70,8 +70,9 @@
             function generar() {
                 var xmlpost = new XMLHttpRequest();
                 xmlpost.open("POST", "../dataxml/itemsUEQS.xml");
-                xmlpost.setRequestHeader("Content-Type", "application/xml");
-                xmlpost.setRequestHeader("Accept", "application/xml");
+
+                xmlpost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
                 xmlpost.onreadystatechange = function () {
                     if (xmlpost.readyState === 4) {
                         console.log(xmlpost.status);
