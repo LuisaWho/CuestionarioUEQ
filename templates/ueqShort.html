@@ -39,7 +39,7 @@
         <script>
             table = document.createElement('table');
             var xml = new XMLHttpRequest();
-            xml.open("GET", "../dataxml/itemsUEQS.xml", false);
+            xml.open("GET", "../dataxml/itemsUEQS.xml", true);
             xml.send();
             var xmlData = xml.responseXML;
 
@@ -84,7 +84,7 @@
                     "<descrip>" + document.getElementById("descrip") + "</descrip>" +
                     "<PIN>2005</PIN>" + "<url>Pagina<url>"
                     "</cuestionario></cuestionarios>";
-                    
+
                 xmlpost.send(cuestionario);
             }
         </script>

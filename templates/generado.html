@@ -18,7 +18,23 @@
         </div>
 
         <h2>PIN para entrar al cuestionario:</h2>
+
+        <script>
+            var xml = new XMLHttpRequest();
+            xml.open("GET", "../dataxml/itemsUEQS.xml", false);
+            xml.send();
+            var xmlData = xml.responseXML;
+            var items = xmlData.getElementsByTagName("item");
+            
+            var container = document.getElementById('tablaItems');
+            
+
+        </script>
+
         <h2>O comparte mediante URL:</h2>
+        <script>
+            
+        </script>
 
         <a href="../index.html" class="inicio">
                 <button class="sig" type="submit">Volver a la página principal</button>
