@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<cuestionarios>
+    <cuestionario>
+        <cuestionarioID>1</cuestionarioID>
+        <tipo>UEQ</tipo>
+        <titulo>Prueba 1 de cuestionario UEQ</titulo>
+        <descrip>Descripción prueba 1 UEQ</descrip>
+        <PIN>PINRANDOM</PIN>
+        <URL>UNAURL</URL>
+    </cuestionario>
+    <cuestionario>
+        <cuestionarioID>2</cuestionarioID>
+        <tipo>UEQS</tipo>
+        <titulo>Prueba 1 de cuestionario UEQ SHORT</titulo>
+        <descrip>Descripción prueba 1 UEQ SHORT</descrip>
+        <PIN>PINRANDOMS</PIN>
+        <URL>UNAURLS</URL>
+    </cuestionario>
+</cuestionarios>
