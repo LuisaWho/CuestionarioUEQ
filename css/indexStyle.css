@@ -8,27 +8,27 @@
 body {
     font-family: 'Trebuchet MS', sans-serif;
     color: var(--color-negro);
-    background-color: hsl(220, 30%, 96%); 
+    background-color: hsl(220, 30%, 96%);
     justify-content: center;
     align-items: center;
 }
 
-img{
+img {
     margin-left: 46%;
     margin-top: 30px;
 }
 
-h1{
+h1 {
     font-family: 'Gill Sans', sans-serif;
     text-align: center;
     font-size: 30px;
     color: var(--color-sub);
-    margin-bottom:70px;
+    margin-bottom: 70px;
     margin-top: 40px;
     font-weight: 100;
 }
 
-h2{
+h2 {
     font-family: 'Gill Sans', sans-serif;
     text-align: center;
     font-size: 25px;
@@ -37,7 +37,7 @@ h2{
     margin-top: 70px;
 }
 
-.buscador{
+.buscador {
     width: 97%;
     height: 30px;
     flex-direction: column;
@@ -47,28 +47,28 @@ h2{
     align-items: center;
 }
 
-input{
-    font-family:'Segoe UI', sans-serif;
+input {
+    font-family: 'Segoe UI', sans-serif;
     font-size: 17px;
     width: 36%;
     border-radius: 30px;
     box-sizing: border-box;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     padding: 15px;
     border: 2px solid rgb(191, 191, 191);
 }
 
-.buscador .btn{
+.buscador .btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-button{
+button {
     width: 200px;
     padding: 12px;
-    font-family:'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -84,10 +84,10 @@ button{
 
 }
 
-button:hover{
+button:hover {
     background: var(--color-blanco);
     color: var(--color-azul);
-  }
+}
 
 
 .option {
@@ -100,7 +100,7 @@ button:hover{
     align-items: center;
 }
 
-.option a{
+.option a {
     text-decoration: none;
 }
 
@@ -139,7 +139,7 @@ button:hover{
 }
 
 .card .descrip {
-    font-family:'Segoe UI',sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     width: 80%;
     margin: 0 0;
     font-size: 17px;
@@ -153,36 +153,38 @@ button:hover{
     transition: all 0.3s ease;
 }
 
-.card:hover{
+.card:hover {
     height: 270px;
     box-shadow: 0 14px 26px hsla(0, 0%, 0%, 0.071);
     background: hsla(212, 100%, 89%, 0.311);
-    
+
 }
 
 .card:hover .descrip {
     transition: all 0.3s ease;
     opacity: 1;
-    max-height:40px;
- }
+    max-height: 40px;
+}
 
- @media screen and (max-width: 700px) {
+@media only screen and (max-device-width: 480px) {
     .option {
-       padding-top: 20px;
-       flex-direction: column;
+        padding-top: 20px;
+        flex-direction: column;
     }
 
-    input{
+    input {
         width: 80%;
     }
 
-    button{
+    button {
         width: 360px;
     }
 
-    img{
-    margin-left: 42%;
+    img {
+        margin-left: 42%;
+
+    }
+
+    
 
 }
-
- }
