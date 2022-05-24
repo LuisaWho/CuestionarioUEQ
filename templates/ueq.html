@@ -61,14 +61,15 @@
         var title = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
         var genbtn = document.getElementById("Genbtn");
-        var cuesID = Math.floor(Math.random() * 10000);
+        var cuesID = Math.floor(Math.random() * (10000 + 99999) - 10000);
 
         function posData() {
             set(ref(db, "Cuestionarios/" + title.value), {
                 Titulo: title.value,
                 Descrip: descrip.value,
                 Type: "Ueq",
-                CuestionarioID: cuesID
+                CuestionarioID: cuesID,
+                url: "Url de la pagina"
             })
                 .then(() => {
                     alert("Se ha creado correctamente el cuestionario");

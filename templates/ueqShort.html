@@ -12,7 +12,7 @@
 <body>
 
     <div class="cabecera">
-        <h1>Demo Cuestionario UEQ </h1>
+        <h1>Demo Cuestionario UEQ S</h1>
         <a href="../templates/generado.html" class="generado">
             <button id="Genbtn" class="enviar" type="submit">Generar cuestionario</button>
         </a>
@@ -61,12 +61,15 @@
         var title = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
         var genbtn = document.getElementById("Genbtn");
+        var cuesID = Math.floor(Math.random() * (10000 + 99999) - 10000);
 
         function posData() {
             set(ref(db, "Cuestionarios/" + title.value), {
                 Titulo: title.value,
                 Descrip: descrip.value,
                 Type: "UeqShort",
+                CuestionarioID: cuesID,
+                url: "Url de la pagina"
             })
                 .then(() => {
                     alert("Se ha creado correctamente el cuestionario");
