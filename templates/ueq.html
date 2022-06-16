@@ -64,7 +64,7 @@
         var cuesID = Math.floor(Math.random() * (10000 + 99999) - 10000);
 
         function posData() {
-            set(ref(db, "Cuestionarios/" + title.value), {
+            set(ref(db, "Cuestionarios/" + cuesID), {
                 Titulo: title.value,
                 Descrip: descrip.value,
                 Type: "Ueq",
@@ -100,7 +100,6 @@
             const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
             tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value="valor" id=${radio}>`).join(' ');
             trow.appendChild(tdpro2);
-
             tbody.appendChild(trow);
         }
 
@@ -123,11 +122,9 @@
             });
         }
         window.onload = getData;
+
     </script>
 
 </body>
-
-
-
 
 </html>
