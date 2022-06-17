@@ -30,24 +30,6 @@
         const db = getDatabase();
         
 
-        function SelectData() {
-            const dbref = ref(db);
-            get(child(dbref, "Cuestionarios")).then((snapshot) => {
-                if (snapshot.exists()) {
-                    
-                    document.getElementById('output').innerHTML = snapshot.val().ID;
-                }
-                else {
-                    alert("Error al buscar el dato");
-                }
-            })
-                .catch((error) => {
-                    alert("ERROR" + error);
-                });
-        }
-
-        window.onload = SelectData;
-
 
     </script>
 

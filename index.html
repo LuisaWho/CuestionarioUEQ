@@ -17,13 +17,10 @@
     <h1>Rellena una encuesta</h1>
 
     <div class="buscador">
-        <input id="PIN" type="text" placeholder="INTRODUZCA PIN O URL" autofocus required />
-        <a href="./templates/respuestas.html" class="entrar">
-            <div class="btn">
-                <button class="entrar" type="submit">Entrar</button>   
-               
-            </div>
-    </a>
+        <input id="pin" type="text" placeholder="INTRODUZCA PIN O URL" autofocus required />
+        <a href="./templates/respuesta.html" class="entrar">
+            <button id="Genbtn" class="entrar" type="submit">Entrar</button>
+        </a>
     </div>
 
     <!----------------Crear encuensta------------>
@@ -35,18 +32,56 @@
             <p class="titulo">UEQ</p>
             <p class="descrip">Versión original de UEQ</p>
 
-        <a href="./templates/ueqShort.html" class="card">
-            <p class="titulo">UEQ-S</p>
-            <p class="descrip">Versión corta de 8 items</p>
-        </a>
+            <a href="./templates/ueqShort.html" class="card">
+                <p class="titulo">UEQ-S</p>
+                <p class="descrip">Versión corta de 8 items</p>
+            </a>
 
-        <a href="./templates/ueqPlus.html" class="card">
-            <p class="titulo">UEQ+</p>
-            <p class="descrip">Extensión para crear tu lista de items</p>
-        </a>
+            <a href="./templates/ueqPlus.html" class="card">
+                <p class="titulo">UEQ+</p>
+                <p class="descrip">Extensión para crear tu lista de items</p>
+            </a>
     </div>
 
-    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getDatabase, ref, set, get, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBUtpFatRb8ubLIezntv_-aC5uqJ2ahAFw",
+            authDomain: "ueqdatabase-26551.firebaseapp.com",
+            databaseURL: "https://ueqdatabase-26551-default-rtdb.firebaseio.com",
+            projectId: "ueqdatabase-26551",
+            storageBucket: "ueqdatabase-26551.appspot.com",
+            messagingSenderId: "275866539227",
+            appId: "1:275866539227:web:d2ef1b9730c6a4863a28fe"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+
+        var genbtn = document.getElementById("Genbtn");
+        var PIN = document.getElementById("PIN");
+
+        function vaciarPIN() {
+            remove(ref(db, "PINResp"));
+        }
+        window.onload = vaciarPIN;
+
+        function posPIN() {
+            set(ref(db, "PINResp"), {
+                PIN: pin.value
+            }).then(() => {
+                    alert("Se ha creado correctamente el cuestionario");
+                })
+                .catch((error) => {
+                    alert("ERROR" + error);
+                });  
+        }
+        genbtn.addEventListener('click', posPIN)
+
+    </script>
+
+
 
 </body>
 
