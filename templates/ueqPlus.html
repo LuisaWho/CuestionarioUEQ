@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <h1 id="esc"> </h1>
+    <p id="output"></p>
 
-    <script type="module">
+    <script type="module" >
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
         import { getDatabase, ref, set, get, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
 
@@ -28,13 +28,14 @@
         };
         const app = initializeApp(firebaseConfig);
         const db = getDatabase();
-        var escr = document.getElementById("esc");
+        
 
         function SelectData() {
             const dbref = ref(db);
             get(child(dbref, "Cuestionarios")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
+                    
+                    document.getElementById('output').innerHTML = snapshot.val().ID;
                 }
                 else {
                     alert("Error al buscar el dato");

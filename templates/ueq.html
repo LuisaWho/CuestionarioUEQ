@@ -61,7 +61,12 @@
         var title = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
         var genbtn = document.getElementById("Genbtn");
-        var cuesID = Math.floor(Math.random() * (10000 + 99999) - 10000);
+        var cuesID = Math.abs(Math.floor(Math.random() * (10000 + 99999) - 10000));
+
+        function vaciarPIN(){
+                remove(ref(db, "UltPIN"));
+            }
+            window.onload = vaciarPIN;
 
         function posData() {
             set(ref(db, "Cuestionarios/" + cuesID), {
@@ -79,6 +84,13 @@
                 });
         }
         genbtn.addEventListener('click', posData)
+
+        function posPIN(){
+            set(ref(db, "ultPIN"), {
+                ID: cuesID
+            })
+        }
+        genbtn.addEventListener('click', posPIN)
 
         var stn = 0;
         var tbody = document.getElementById("itemsprev");

@@ -18,6 +18,7 @@
         </div>
 
         <h2>PIN para entrar al cuestionario: </h2>
+        <h2 id = "PIN"></h2>
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -39,13 +40,13 @@
 
             function SelectData() {
                 const dbref = ref(db);
-                get(child(dbref, "Cuestionarios")).then((snapshot) => {
+                get(child(dbref, "ultPIN")).then((snapshot) => {
                     if (snapshot.exists()) {
-
+                        document.getElementById('PIN').innerHTML = snapshot.val().ID;
                         console.log(snapshot.val());
                     }
                     else {
-                        alert("Error al buscar el dato");
+                        alert("Error al buscar el PIN");
                     }
                 })
                     .catch((error) => {
@@ -53,7 +54,6 @@
                     });
             }
             window.onload = SelectData;
-
 
         </script>
 
