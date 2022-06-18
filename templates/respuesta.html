@@ -11,6 +11,12 @@
 </head>
 
 <body>
+    <a href="./termina.html" class="sig">
+        <div class="btn">
+            <button class="sig" type="submit">Siguiente</button>
+
+        </div>
+    </a>
 
     <div class="cuestionario">
         <h1 id="title"></h1>
@@ -18,16 +24,6 @@
 
         <table class="listitem">
             <tbody id="items">
-                <trow>
-                    <th>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr>
-                        <tr></tr>
-                    </th>
-                </trow>
-
-
             </tbody>
         </table>
 
@@ -76,10 +72,12 @@
                     if (snapshot.exists()) {
                         document.getElementById('title').innerHTML = snapshot.val().Titulo;
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
-                        if (snapshot.val().Type = "Ueq") {
-                            console.log("Ueq");
+                        if (snapshot.val().Type = "UeqShort") {
+                            getCuesShort();
                         }
-                        else { console.log("UeqShor"); }
+                        else { 
+                            getCues(); 
+                        }
                     }
                     else {
                         document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
@@ -89,19 +87,61 @@
                 });
             }
 
-            function cargarUEQ() {
+                var stn = 0;
+                var tbody = document.getElementById("items");
 
+            function additems(ID, Prop1, Prop2) {
+                let trow = document.createElement("tr")
+                let tdid = document.createElement("td");
+                let tdpro1 = document.createElement("td");
+                let tdpunt = document.createElement("td");
+                let tdpro2 = document.createElement("td");
 
+                tdid.innerHTML = ID;
+                tdpro1.innerHTML = Prop1;
+                tdpro2.innerHTML = Prop2;
+
+                trow.appendChild(tdid);
+                trow.appendChild(tdpro1);
+                tdpunt = trow.insertCell();
+                const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
+                const valor = [1, 2, 3, 4, 5, 6, 7];
+                tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value=~${valor} id=${radio}>`).join(' ');
+                trow.appendChild(tdpro2);
+                tbody.appendChild(trow);
             }
 
-            function cargarUEQS() {
-
+            function datos(items) {
+                tbody.innerHTML = "";
+                items.forEach(element => {
+                    additems(element.ID, element.Prop1, element.Prop2);
+                });
             }
 
+            function getCuesShort() {
+                const dbref = ref(db);
 
+                get(child(dbref, "itemsShort")).then((snapshot) => {
+                    var items = [];
+                    snapshot.forEach(childSnapshot => {
+                        items.push(childSnapshot.val());
+                    });
+                    datos(items);
+                });
+            }
 
+            function getCues() {
+                const dbref = ref(db);
 
-
+                get(child(dbref, "items")).then((snapshot) => {
+                    var items = [];
+                    snapshot.forEach(childSnapshot => {
+                        items.push(childSnapshot.val());
+                    });
+                    datos(items);
+                });
+            }
+           
 
 
         </script>

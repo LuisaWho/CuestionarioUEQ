@@ -1,0 +1,154 @@
+:root {
+    --color-negro: hsl(0, 0%, 0%);
+    --color-blanco: hsl(100, 100%, 100%);
+    --color-azul: hsl(210, 100%, 45%);
+    --color-sub: hsl(0, 0%, 25%);
+    --color-gris: hsl(0, 0%, 29%);
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+    color: var(--color-negro);
+    background-color: hsl(220, 30%, 96%);
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.cabecera {
+    display: flex;
+    background-color: var(--color-blanco);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    box-shadow: 0 14px 26px hsla(0, 0%, 0%, 0.025);
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--color-azul);
+
+}
+
+.inicio{
+    top: 50px;
+    left: 25%;
+    width: 20%;
+    padding: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    border-radius: 40px;
+}
+
+button{
+    width: 50%;
+    padding: 15px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    border: 3px solid var(--color-azul);
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all .35s;
+    background: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+button:hover {
+    background: var(--color-blanco);
+    color: var(--color-azul);
+}
+
+.cuestionario{
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    max-width: 80%;
+    background-color: #fff;
+    padding: 60px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.025);
+}
+
+
+
+.titulo,
+.descrip {
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+input {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    width: 95%;
+    height: 25px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 15px;
+    line-height: 150%;
+}
+
+textarea {
+    width: 95%;
+    min-height: 100px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 15px;
+    line-height: 150%;
+    height: 100px;
+    resize: vertical;
+}
+
+label {
+    line-height: 40px;
+    color: var(--color-gris);
+    font-size: 24px;
+    display: block;
+    width: 70%;
+}
+
+.listitem{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    margin-top: 50px;
+    
+}
+
+.puntuacion {
+    position: static;
+    
+}
+
+input[type="radio"] {
+    position: static;
+    width: 25px;
+    margin: auto;
+    border-radius: 100%;
+    margin: 10px;
+}
+
+td{
+    font-size: large;
+    text-align: center;
+
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+p{
+    font-size: large;
+}
