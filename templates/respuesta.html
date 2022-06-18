@@ -13,13 +13,8 @@
 <body>
 
     <div class="cuestionario">
-        <div class="titulo">
-            <h1>Cuestionario de experiencia de usuario sobre la aplicación de UEQ</h1>
-        </div>
-
-        <div class="descrip">
-            <p>Este cuestionario consiste en....</p>
-        </div>
+            <h1 id="title" ></h1>
+            <p id="descrip"></p>
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -38,6 +33,44 @@
             const app = initializeApp(firebaseConfig);
             const db = getDatabase();
 
+            var Title = document.getElementById("title");
+            var Descrip = document.getElementById("descrip");
+            var Pin;
+
+            function getPIN() {
+                const dbref = ref(db);
+                get(child(dbref, "PINResp")).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        Pin = snapshot.val().PIN;
+                        getData(Pin);
+                    }
+                    else {
+                        alert("Error al buscar el PIN");
+                    }
+                })
+                    .catch((error) => {
+                        alert("ERROR" + error);
+                    });
+            }
+            window.onload = getPIN;
+           
+
+            function getData(PIN){
+                const dbref = ref(db);
+                get(child(dbref, "Cuestionarios/" + Pin)).then((snapshot) => {
+                    if(snapshot.exists()){
+                        document.getElementById('title').innerHTML = snapshot.val().Titulo;
+                        document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
+                    }
+                    else{
+                        document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
+                    }
+                }).catch((error)=> {
+                    alert("Unexpected error " + error);
+                });
+            }
+
+            
 
 
 
