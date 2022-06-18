@@ -110,7 +110,8 @@
             trow.appendChild(tdpro1);
             tdpunt = trow.insertCell();
             const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
-            tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value="valor" id=${radio}>`).join(' ');
+            const valor = [1,2,3,4,5,6,7];
+            tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value=${valor} id=${radio}>`).join(' ');
             trow.appendChild(tdpro2);
             tbody.appendChild(trow);
         }

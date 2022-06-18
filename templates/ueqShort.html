@@ -61,10 +61,15 @@
         var title = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
         var genbtn = document.getElementById("Genbtn");
-        var cuesID = Math.floor(Math.random() * (10000 + 99999) - 10000);
+        var cuesID = Math.abs(Math.floor(Math.random() * (10000 + 99999) - 10000));
+
+        function vaciarPIN(){
+                remove(ref(db, "ultPIN"));
+            }
+            window.onload = vaciarPIN;
 
         function posData() {
-            set(ref(db, "Cuestionarios/" + title.value), {
+            set(ref(db, "Cuestionarios/" + cuesID), {
                 Titulo: title.value,
                 Descrip: descrip.value,
                 Type: "UeqShort",
@@ -79,6 +84,13 @@
                 });
         }
         genbtn.addEventListener('click', posData)
+
+        function posPIN(){
+            set(ref(db, "ultPIN"), {
+                ID: cuesID
+            })
+        }
+        genbtn.addEventListener('click', posPIN)
 
         var stn = 0;
         var tbody = document.getElementById("itemsprev");
@@ -98,9 +110,9 @@
             trow.appendChild(tdpro1);
             tdpunt = trow.insertCell();
             const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
-            tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value="valor" id=${radio}>`).join(' ');
+            const valor = [1,2,3,4,5,6,7];
+            tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value=~${valor} id=${radio}>`).join(' ');
             trow.appendChild(tdpro2);
-
             tbody.appendChild(trow);
         }
 

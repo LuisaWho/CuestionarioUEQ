@@ -7,14 +7,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
     <link rel="stylesheet" href="../css/respstyle.css">
 
-    <title>Cuestionario UEQ | Responder cuestionario </title>
+    <title>Cuestionario | Responder cuestionario </title>
 </head>
 
 <body>
 
     <div class="cuestionario">
-            <h1 id="title" ></h1>
-            <p id="descrip"></p>
+        <h1 id="title"></h1>
+        <p id="descrip"></p>
+
+        <table class="listitem">
+            <tbody id="items">
+                <trow>
+                    <th>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                        <tr></tr>
+                    </th>
+                </trow>
+
+
+            </tbody>
+        </table>
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -53,24 +68,39 @@
                     });
             }
             window.onload = getPIN;
-           
 
-            function getData(PIN){
+
+            function getData(PIN) {
                 const dbref = ref(db);
                 get(child(dbref, "Cuestionarios/" + Pin)).then((snapshot) => {
-                    if(snapshot.exists()){
+                    if (snapshot.exists()) {
                         document.getElementById('title').innerHTML = snapshot.val().Titulo;
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
+                        if (snapshot.val().Type = "Ueq") {
+                            console.log("Ueq");
+                        }
+                        else { console.log("UeqShor"); }
                     }
-                    else{
+                    else {
                         document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
                     }
-                }).catch((error)=> {
+                }).catch((error) => {
                     alert("Unexpected error " + error);
                 });
             }
 
-            
+            function cargarUEQ() {
+
+
+            }
+
+            function cargarUEQS() {
+
+            }
+
+
+
+
 
 
 
