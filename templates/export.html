@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
+    <link rel="stylesheet" href="../css/ueqstyle.css">
+    <title>Cuestionario UEQ | Exportar Datos </title>
+</head>
+
+<body>
+
+    <div class="cabecera">
+        <h1>Exportar datos </h1>
+        <a href="../index.html" class="generado">
+            <button id="Genbtn" class="enviar" type="submit">Volver</button>
+        </a>
+
+    </div>
+
+
+    <div class="cuestionario">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>john@gmail.com</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>Stephen Thomas</td>
+                <td>stephen@gmail.com</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Natly Oath</td>
+                <td>natly@gmail.com</td>
+                <td>France</td>
+            </tr>
+        </table>
+
+        <button onclick="exportTableToCSV('members.csv')">Export HTML Table To CSV File</button>
+
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getDatabase, ref, set, get, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBUtpFatRb8ubLIezntv_-aC5uqJ2ahAFw",
+            authDomain: "ueqdatabase-26551.firebaseapp.com",
+            databaseURL: "https://ueqdatabase-26551-default-rtdb.firebaseio.com",
+            projectId: "ueqdatabase-26551",
+            storageBucket: "ueqdatabase-26551.appspot.com",
+            messagingSenderId: "275866539227",
+            appId: "1:275866539227:web:d2ef1b9730c6a4863a28fe"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+
+        function downloadCSV(csv, filename) {
+            var csvFile;
+            var downloadLink;
+
+            // CSV file
+            csvFile = new Blob([csv], { type: "text/csv" });
+
+            // Download link
+            downloadLink = document.createElement("a");
+
+            // File name
+            downloadLink.download = filename;
+
+            // Create a link to the file
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+
+            // Hide download link
+            downloadLink.style.display = "none";
+
+            // Add the link to DOM
+            document.body.appendChild(downloadLink);
+
+            // Click download link
+            downloadLink.click();
+        }
+
+        function exportTableToCSV(filename) {
+            var csv = [];
+            var rows = document.querySelectorAll("table tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+
+                for (var j = 0; j < cols.length; j++)
+                    row.push(cols[j].innerText);
+
+                csv.push(row.join(","));
+            }
+
+            // Download CSV file
+            downloadCSV(csv.join("\n"), filename);
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
