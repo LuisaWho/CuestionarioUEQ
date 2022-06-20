@@ -125,7 +125,6 @@
 
         function getData() {
             const dbref = ref(db);
-
             get(child(dbref, "items")).then((snapshot) => {
                 var items = [];
                 snapshot.forEach(childSnapshot => {

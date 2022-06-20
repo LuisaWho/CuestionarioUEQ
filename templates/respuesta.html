@@ -11,21 +11,125 @@
 </head>
 
 <body>
-    <a href="./termina.html" class="sig">
-        <div class="btn">
-            <button class="sig" type="submit">Siguiente</button>
-
-        </div>
-    </a>
 
     <div class="cuestionario">
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
+        
+
         <table class="listitem">
-            <tbody id="items">
-            </tbody>
+            <tr>
+                <th>1</th>
+                <th>Obstructivo</th>
+                <th><input type="radio" name="item1" value="1">
+                    <input type="radio" name="item1" value="2">
+                    <input type="radio" name="item1" value="3">
+                    <input type="radio" name="item1" value="4">
+                    <input type="radio" name="item1" value="5">
+                    <input type="radio" name="item1" value="6">
+                    <input type="radio" name="item1" value="7">
+                </th>
+                <th>Impulsor</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>Complicado</th>
+                <th><input type="radio" name="item2" value="1">
+                    <input type="radio" name="item2" value="2">
+                    <input type="radio" name="item2" value="3">
+                    <input type="radio" name="item2" value="4">
+                    <input type="radio" name="item2" value="5">
+                    <input type="radio" name="item2" value="6">
+                    <input type="radio" name="item2" value="7">
+                </th>
+                <th>Fácil</th>
+            </tr>
+            <tr>
+                <th>3</th>
+                <th>Ineficiente</th>
+                <th><input type="radio" name="item3" value="1">
+                    <input type="radio" name="item3" value="2">
+                    <input type="radio" name="item3" value="3">
+                    <input type="radio" name="item3" value="4">
+                    <input type="radio" name="item3" value="5">
+                    <input type="radio" name="item3" value="6">
+                    <input type="radio" name="item3" value="7">
+                </th>
+                <th>Eficiente</th>
+            </tr>
+            <tr>
+                <th>4</th>
+                <th>Confuso</th>
+                <th><input type="radio" name="item4" value="1">
+                    <input type="radio" name="item4" value="2">
+                    <input type="radio" name="item4" value="3">
+                    <input type="radio" name="item4" value="4">
+                    <input type="radio" name="item4" value="5">
+                    <input type="radio" name="item4" value="6">
+                    <input type="radio" name="item4" value="7">
+                </th>
+                <th>Claro</th>
+            </tr>
+            <tr>
+                <th>5</th>
+                <th>Aburrido</th>
+                <th><input type="radio" name="item5" value="1">
+                    <input type="radio" name="item5" value="2">
+                    <input type="radio" name="item5" value="3">
+                    <input type="radio" name="item5" value="4">
+                    <input type="radio" name="item5" value="5">
+                    <input type="radio" name="item5" value="6">
+                    <input type="radio" name="item5" value="7">
+                </th>
+                <th>Emocionante</th>
+            </tr>
+            <tr>
+                <th>6</th>
+                <th>No interesante</th>
+                <th><input type="radio" name="item6" value="1">
+                    <input type="radio" name="item6" value="2">
+                    <input type="radio" name="item6" value="3">
+                    <input type="radio" name="item6" value="4">
+                    <input type="radio" name="item6" value="5">
+                    <input type="radio" name="item6" value="6">
+                    <input type="radio" name="item6" value="7">
+                </th>
+                <th>Interesante</th>
+            </tr>
+            <tr>
+                <th>7</th>
+                <th>Convencional</th>
+                <th><input type="radio" name="item7" value="1">
+                    <input type="radio" name="item7" value="2">
+                    <input type="radio" name="item7" value="3">
+                    <input type="radio" name="item7" value="4">
+                    <input type="radio" name="item7" value="5">
+                    <input type="radio" name="item7" value="6">
+                    <input type="radio" name="item7" value="7">
+                </th>
+                <th>Original</th>
+            </tr>
+            <tr>
+                <th>8</th>
+                <th>Convencional</th>
+                <th><input type="radio" name="item8" value="1">
+                    <input type="radio" name="item8" value="2">
+                    <input type="radio" name="item8" value="3">
+                    <input type="radio" name="item8" value="4">
+                    <input type="radio" name="item8" value="5">
+                    <input type="radio" name="item8" value="6">
+                    <input type="radio" name="item8" value="7">
+                </th>
+                <th>Novedoso</th>
+            </tr>
+
+
         </table>
+
+        <a href="./termina.html" class="pagterm">
+            <button id="Envio" class="env" type="submit">Enviar Respuesta</button>
+        </a>
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -44,13 +148,47 @@
             const app = initializeApp(firebaseConfig);
             const db = getDatabase();
 
+            var genbtn = document.getElementById("Envio");
+            
+
+            var item1Res = document.getElementsByName("item1");
+            var item2Res = document.getElementsByName("item2");
+            var item3Res = document.getElementsByName("item3");
+            var item4Res = document.getElementsByName("item4");
+            var item5Res = document.getElementsByName("item5");
+            var item6Res = document.getElementsByName("item6");
+            var item7Res = document.getElementsByName("item7");
+            var item8Res = document.getElementsByName("item8");
+            var Pin;
+             
             var Title = document.getElementById("title");
             var Descrip = document.getElementById("descrip");
-            var Pin;
+
+            function getRes(item1Res) {
+                for (var i = 0, length = item1Res.length; i < length; i++) {
+                    if (item1Res[i].checked) {
+                        return item1Res[i].value;
+                    }
+                }
+            }
+
+            function saveAnsw() {
+                set(ref(db, "TemporalRes"), {
+                    item1: getRes(item1Res),
+                    item2: getRes(item2Res),
+                    item3: getRes(item3Res),
+                    item4: getRes(item4Res),
+                    item5: getRes(item5Res),
+                    item6: getRes(item6Res),
+                    item7: getRes(item7Res),
+                    item8: getRes(item8Res)
+                });
+            }
+            genbtn.addEventListener('click', saveAnsw)
+
 
             function getPIN() {
-                const dbref = ref(db);
-                get(child(dbref, "PINResp")).then((snapshot) => {
+                get(ref(db, "PINResp")).then((snapshot) => {
                     if (snapshot.exists()) {
                         Pin = snapshot.val().PIN;
                         getData(Pin);
@@ -60,7 +198,7 @@
                     }
                 })
                     .catch((error) => {
-                        alert("ERROR" + error);
+                        alert("ERROR " + error);
                     });
             }
             window.onload = getPIN;
@@ -73,76 +211,19 @@
                         document.getElementById('title').innerHTML = snapshot.val().Titulo;
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
                         if (snapshot.val().Type = "UeqShort") {
-                            getCuesShort();
+                            console.log("UEQSHORT");
                         }
-                        else { 
-                            getCues(); 
+                        else {
+                            console.log("UEQ");
                         }
                     }
                     else {
                         document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
                     }
                 }).catch((error) => {
-                    alert("Unexpected error " + error);
+                    alert("ERROR " + error);
                 });
             }
-
-                var stn = 0;
-                var tbody = document.getElementById("items");
-
-            function additems(ID, Prop1, Prop2) {
-                let trow = document.createElement("tr")
-                let tdid = document.createElement("td");
-                let tdpro1 = document.createElement("td");
-                let tdpunt = document.createElement("td");
-                let tdpro2 = document.createElement("td");
-
-                tdid.innerHTML = ID;
-                tdpro1.innerHTML = Prop1;
-                tdpro2.innerHTML = Prop2;
-
-                trow.appendChild(tdid);
-                trow.appendChild(tdpro1);
-                tdpunt = trow.insertCell();
-                const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
-                const valor = [1, 2, 3, 4, 5, 6, 7];
-                tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value=~${valor} id=${radio}>`).join(' ');
-                trow.appendChild(tdpro2);
-                tbody.appendChild(trow);
-            }
-
-            function datos(items) {
-                tbody.innerHTML = "";
-                items.forEach(element => {
-                    additems(element.ID, element.Prop1, element.Prop2);
-                });
-            }
-
-            function getCuesShort() {
-                const dbref = ref(db);
-
-                get(child(dbref, "itemsShort")).then((snapshot) => {
-                    var items = [];
-                    snapshot.forEach(childSnapshot => {
-                        items.push(childSnapshot.val());
-                    });
-                    datos(items);
-                });
-            }
-
-            function getCues() {
-                const dbref = ref(db);
-
-                get(child(dbref, "items")).then((snapshot) => {
-                    var items = [];
-                    snapshot.forEach(childSnapshot => {
-                        items.push(childSnapshot.val());
-                    });
-                    datos(items);
-                });
-            }
-           
-
 
         </script>
     </div>

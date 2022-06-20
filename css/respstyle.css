@@ -34,14 +34,9 @@ h1 {
 
 }
 
-.btn {
-    padding-left: 85%;
-    padding-top: 25px;
-    width: 15%;
-}
 
 button {
-    width: 100%;
+    width: 30%;
     padding: 10px;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 15px;
@@ -54,6 +49,7 @@ button {
     transition: all .35s;
     background: var(--color-azul);
     color: var(--color-blanco);
+    
 }
 
 button:hover {
@@ -125,7 +121,7 @@ label {
 
 input[type="radio"] {
     position: static;
-    width: 25px;
+    width: 30px;
     margin: auto;
     border-radius: 100%;
     margin: 10px;
