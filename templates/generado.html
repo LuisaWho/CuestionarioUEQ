@@ -43,7 +43,6 @@
                 get(child(dbref, "ultPIN")).then((snapshot) => {
                     if (snapshot.exists()) {
                         document.getElementById('PIN').innerHTML = snapshot.val().ID;
-                        console.log(snapshot.val());
                     }
                     else {
                         alert("Error al buscar el PIN");

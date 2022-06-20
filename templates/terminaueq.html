@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
+    <link rel="stylesheet" href="../css/terminastyle.css">
+
+    <title>Cuestionario UEQ | Fin UEQ </title>
+</head>
+
+<body>
+
+    <div class="cuestionario">
+        <div class="titulo">
+            <h1>¡Muchas gracias por completar el cuestionario!</h1>
+        </div>
+
+        <a href="../index.html" class="sig">
+            <button class="sig" type="submit">Volver a la página principal</button>
+        </a>
+
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getDatabase, ref, set, get, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBUtpFatRb8ubLIezntv_-aC5uqJ2ahAFw",
+            authDomain: "ueqdatabase-26551.firebaseapp.com",
+            databaseURL: "https://ueqdatabase-26551-default-rtdb.firebaseio.com",
+            projectId: "ueqdatabase-26551",
+            storageBucket: "ueqdatabase-26551.appspot.com",
+            messagingSenderId: "275866539227",
+            appId: "1:275866539227:web:d2ef1b9730c6a4863a28fe"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        var resID = Math.abs(Math.floor(Math.random() * (100000000 + 999999999) - 100000000));
+        var Pin;
+
+        function getPIN() {
+            get(ref(db, "PINResp")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    Pin = snapshot.val().PIN;
+                    getData(Pin);
+                    getData1(Pin);
+                    getData2(Pin);
+                    getData3(Pin);
+                }
+                else {
+                    alert("Error al buscar el PIN");
+                }
+            })
+                .catch((error) => {
+                    alert("ERROR " + error);
+                });
+        }
+        window.onload = getPIN;
+
+        function getData(Pin) {
+            const dbref = ref(db);
+            get(child(dbref, "TemporalResUEQPag0")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(db, "ResCuesUEQ0/" + Pin + "/" + resID), {
+                        item1: snapshot.val().item1,
+                        item2: snapshot.val().item2,
+                        item3: snapshot.val().item3,
+                        item4: snapshot.val().item4,
+                        item5: snapshot.val().item5,
+                        item6: snapshot.val().item6,
+                        item7: snapshot.val().item7,
+
+                    })
+                    remove(ref(db, "TemporalResUEQPag0"));
+                }
+                else {
+                    alert("Error al guardar las respuestas de la pág 1")
+                }
+            }).catch((error) => {
+                alert("ERROR NO CONTEMPLADO " + error);
+            });
+        }
+
+        function getData1(Pin) {
+            const dbref = ref(db);
+            get(child(dbref, "TemporalResUEQPag1")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(db, "ResCuesUEQ1/" + Pin + "/" + resID), {
+                        item8: snapshot.val().item8,
+                        item9: snapshot.val().item9,
+                        item10: snapshot.val().item10,
+                        item11: snapshot.val().item11,
+                        item12: snapshot.val().item12,
+                        item13: snapshot.val().item13,
+                        item14: snapshot.val().item14,
+                    })
+                    remove(ref(db, "TemporalResUEQPag1"));
+                }
+                else {
+                    alert("Error al guardar los resultados de la pág 2")
+                }
+            }).catch((error) => {
+                alert("ERROR NO CONTEMPLADO " + error);
+            });
+        }
+
+        function getData2(Pin) {
+            const dbref = ref(db);
+            get(child(dbref, "TemporalResUEQPag2")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(db, "ResCuesUeq2/" + Pin + "/" + resID), {
+                        item15: snapshot.val().item15,
+                        item16: snapshot.val().item16,
+                        item17: snapshot.val().item17,
+                        item18: snapshot.val().item18,
+                        item19: snapshot.val().item19,
+                        item20: snapshot.val().item20,
+                        item21: snapshot.val().item21,
+                    })
+                    remove(ref(db, "TemporalResUEQPag2"));
+                }
+                else {
+                    alert("Error al guardar los resultados de la pág 3")
+                }
+            }).catch((error) => {
+                alert("ERROR NO CONTEMPLADO " + error);
+            });
+        }
+
+        function getData3(Pin) {
+            const dbref = ref(db);
+            get(child(dbref, "TemporalResUEQPag3")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(db, "ResCuesUEQ3/" + Pin + "/" + resID), {
+                        item22: snapshot.val().item22,
+                        item23: snapshot.val().item23,
+                        item24: snapshot.val().item24,
+                        item25: snapshot.val().item25,
+                        item26: snapshot.val().item26
+                    }).then(() => {
+                        alert("Se han enviado las respuestas correctamente");
+                    })
+                    remove(ref(db, "TemporalResUEQPag3"));
+                }
+                else {
+                    alert("Error al guardar los resultados de la pág 4")
+                }
+            }).catch((error) => {
+                alert("ERROR NO CONTEMPLADO " + error);
+            });
+        }
+        
+
+    </script>
+
+
+
+</body>
+
+
+
+
+</html>

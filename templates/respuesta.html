@@ -16,119 +16,15 @@
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
-        
-
-        <table class="listitem">
-            <tr>
-                <th>1</th>
-                <th>Obstructivo</th>
-                <th><input type="radio" name="item1" value="1">
-                    <input type="radio" name="item1" value="2">
-                    <input type="radio" name="item1" value="3">
-                    <input type="radio" name="item1" value="4">
-                    <input type="radio" name="item1" value="5">
-                    <input type="radio" name="item1" value="6">
-                    <input type="radio" name="item1" value="7">
-                </th>
-                <th>Impulsor</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>Complicado</th>
-                <th><input type="radio" name="item2" value="1">
-                    <input type="radio" name="item2" value="2">
-                    <input type="radio" name="item2" value="3">
-                    <input type="radio" name="item2" value="4">
-                    <input type="radio" name="item2" value="5">
-                    <input type="radio" name="item2" value="6">
-                    <input type="radio" name="item2" value="7">
-                </th>
-                <th>Fácil</th>
-            </tr>
-            <tr>
-                <th>3</th>
-                <th>Ineficiente</th>
-                <th><input type="radio" name="item3" value="1">
-                    <input type="radio" name="item3" value="2">
-                    <input type="radio" name="item3" value="3">
-                    <input type="radio" name="item3" value="4">
-                    <input type="radio" name="item3" value="5">
-                    <input type="radio" name="item3" value="6">
-                    <input type="radio" name="item3" value="7">
-                </th>
-                <th>Eficiente</th>
-            </tr>
-            <tr>
-                <th>4</th>
-                <th>Confuso</th>
-                <th><input type="radio" name="item4" value="1">
-                    <input type="radio" name="item4" value="2">
-                    <input type="radio" name="item4" value="3">
-                    <input type="radio" name="item4" value="4">
-                    <input type="radio" name="item4" value="5">
-                    <input type="radio" name="item4" value="6">
-                    <input type="radio" name="item4" value="7">
-                </th>
-                <th>Claro</th>
-            </tr>
-            <tr>
-                <th>5</th>
-                <th>Aburrido</th>
-                <th><input type="radio" name="item5" value="1">
-                    <input type="radio" name="item5" value="2">
-                    <input type="radio" name="item5" value="3">
-                    <input type="radio" name="item5" value="4">
-                    <input type="radio" name="item5" value="5">
-                    <input type="radio" name="item5" value="6">
-                    <input type="radio" name="item5" value="7">
-                </th>
-                <th>Emocionante</th>
-            </tr>
-            <tr>
-                <th>6</th>
-                <th>No interesante</th>
-                <th><input type="radio" name="item6" value="1">
-                    <input type="radio" name="item6" value="2">
-                    <input type="radio" name="item6" value="3">
-                    <input type="radio" name="item6" value="4">
-                    <input type="radio" name="item6" value="5">
-                    <input type="radio" name="item6" value="6">
-                    <input type="radio" name="item6" value="7">
-                </th>
-                <th>Interesante</th>
-            </tr>
-            <tr>
-                <th>7</th>
-                <th>Convencional</th>
-                <th><input type="radio" name="item7" value="1">
-                    <input type="radio" name="item7" value="2">
-                    <input type="radio" name="item7" value="3">
-                    <input type="radio" name="item7" value="4">
-                    <input type="radio" name="item7" value="5">
-                    <input type="radio" name="item7" value="6">
-                    <input type="radio" name="item7" value="7">
-                </th>
-                <th>Original</th>
-            </tr>
-            <tr>
-                <th>8</th>
-                <th>Convencional</th>
-                <th><input type="radio" name="item8" value="1">
-                    <input type="radio" name="item8" value="2">
-                    <input type="radio" name="item8" value="3">
-                    <input type="radio" name="item8" value="4">
-                    <input type="radio" name="item8" value="5">
-                    <input type="radio" name="item8" value="6">
-                    <input type="radio" name="item8" value="7">
-                </th>
-                <th>Novedoso</th>
-            </tr>
-
-
+        <table id="listitem">
         </table>
 
         <a href="./termina.html" class="pagterm">
-            <button id="Envio" class="env" type="submit">Enviar Respuesta</button>
+            <button id="Envio" class="env" type="submit" hidden>Enviar Respuesta</button>
+        </a>
+
+        <a href="./respuestapag1.html" class="pagsig">
+            <button id="Siguiente" class="env" type="submit" hidden>Siguiente página</button>
         </a>
 
         <script type="module">
@@ -149,7 +45,7 @@
             const db = getDatabase();
 
             var genbtn = document.getElementById("Envio");
-            
+            var sigbtn = document.getElementById("Siguiente");
 
             var item1Res = document.getElementsByName("item1");
             var item2Res = document.getElementsByName("item2");
@@ -159,10 +55,19 @@
             var item6Res = document.getElementsByName("item6");
             var item7Res = document.getElementsByName("item7");
             var item8Res = document.getElementsByName("item8");
+
             var Pin;
-             
+
             var Title = document.getElementById("title");
             var Descrip = document.getElementById("descrip");
+
+            function displaySig(){
+                    document.getElementById('Siguiente').hidden = false;
+                }
+            
+            function displayFin(){
+                document.getElementById('Envio').hidden = false;
+            }
 
             function getRes(item1Res) {
                 for (var i = 0, length = item1Res.length; i < length; i++) {
@@ -172,8 +77,8 @@
                 }
             }
 
-            function saveAnsw() {
-                set(ref(db, "TemporalRes"), {
+            function saveAnswShort() {
+                set(ref(db, "TemporalResShort"), {
                     item1: getRes(item1Res),
                     item2: getRes(item2Res),
                     item3: getRes(item3Res),
@@ -184,7 +89,20 @@
                     item8: getRes(item8Res)
                 });
             }
-            genbtn.addEventListener('click', saveAnsw)
+            genbtn.addEventListener('click', saveAnswShort)
+
+            function saveAnsw() {
+                set(ref(db, "TemporalResUEQPag0"), {
+                    item1: getRes(item1Res),
+                    item2: getRes(item2Res),
+                    item3: getRes(item3Res),
+                    item4: getRes(item4Res),
+                    item5: getRes(item5Res),
+                    item6: getRes(item6Res),
+                    item7: getRes(item7Res),
+                });
+            }
+            sigbtn.addEventListener('click', saveAnsw)
 
 
             function getPIN() {
@@ -210,11 +128,15 @@
                     if (snapshot.exists()) {
                         document.getElementById('title').innerHTML = snapshot.val().Titulo;
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
-                        if (snapshot.val().Type = "UeqShort") {
-                            console.log("UEQSHORT");
+                        let type = snapshot.val().Type;
+                        let text = "UeqShort";
+                        if (text.localeCompare(type) == 0) {
+                            loadUEQS();
+                            displayFin();
                         }
                         else {
-                            console.log("UEQ");
+                            displaySig();
+                            loadUEQ();
                         }
                     }
                     else {
@@ -223,6 +145,215 @@
                 }).catch((error) => {
                     alert("ERROR " + error);
                 });
+            }
+
+            function loadUEQS() {
+                var tbody = document.getElementById("listitem");
+                var html = '<table id = "listitem">' +
+                    '<tr>' +
+                    '<th>1</th>' +
+                    '<th>Obstructivo</th>' +
+                    '<th><input type="radio" name="item1" value="1">' +
+                    '<input type="radio" name="item1" value="2">' +
+                    '<input type="radio" name="item1" value="3">' +
+                    '<input type="radio" name="item1" value="4">' +
+                    '<input type="radio" name="item1" value="5">' +
+                    '<input type="radio" name="item1" value="6">' +
+                    '<input type="radio" name="item1" value="7">' +
+                    '</th>' +
+                    '<th>Impulsor</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>2</th>' +
+                    '<th>Complicado</th>' +
+                    '<th><input type="radio" name="item2" value="1">' +
+                    '<input type="radio" name="item2" value="2">' +
+                    '<input type="radio" name="item2" value="3">' +
+                    '<input type="radio" name="item2" value="4">' +
+                    '<input type="radio" name="item2" value="5">' +
+                    '<input type="radio" name="item2" value="6">' +
+                    '<input type="radio" name="item2" value="7">' +
+                    '</th>' +
+                    '<th>Fácil</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>3</th>' +
+                    '<th>Ineficiente</th>' +
+                    '<th><input type="radio" name="item3" value="1">' +
+                    '<input type="radio" name="item3" value="2">' +
+                    '<input type="radio" name="item3" value="3">' +
+                    '<input type="radio" name="item3" value="4">' +
+                    '<input type="radio" name="item3" value="5">' +
+                    '<input type="radio" name="item3" value="6">' +
+                    '<input type="radio" name="item3" value="7">' +
+                    '</th>' +
+                    '<th>Eficiente</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>4</th>' +
+                    '<th>Confuso</th>' +
+                    '<th><input type="radio" name="item4" value="1">' +
+                    '<input type="radio" name="item4" value="2">' +
+                    '<input type="radio" name="item4" value="3">' +
+                    '<input type="radio" name="item4" value="4">' +
+                    '<input type="radio" name="item4" value="5">' +
+                    '<input type="radio" name="item4" value="6">' +
+                    '<input type="radio" name="item4" value="7">' +
+                    '</th>' +
+                    '<th>Claro</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>5</th>' +
+                    '<th>Aburrido</th>' +
+                    '<th><input type="radio" name="item5" value="1">' +
+                    '<input type="radio" name="item5" value="2">' +
+                    '<input type="radio" name="item5" value="3">' +
+                    '<input type="radio" name="item5" value="4">' +
+                    '<input type="radio" name="item5" value="5">' +
+                    '<input type="radio" name="item5" value="6">' +
+                    '<input type="radio" name="item5" value="7">' +
+                    '</th>' +
+                    '<th>Emocionante</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>6</th>' +
+                    '<th>No interesante</th>' +
+                    '<th><input type="radio" name="item6" value="1">' +
+                    '<input type="radio" name="item6" value="2">' +
+                    '<input type="radio" name="item6" value="3">' +
+                    '<input type="radio" name="item6" value="4">' +
+                    '<input type="radio" name="item6" value="5">' +
+                    '<input type="radio" name="item6" value="6">' +
+                    '<input type="radio" name="item6" value="7">' +
+                    '</th>' +
+                    '<th>Interesante</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>7</th>' +
+                    '<th>Convencional</th>' +
+                    '<th><input type="radio" name="item7" value="1">' +
+                    '<input type="radio" name="item7" value="2">' +
+                    '<input type="radio" name="item7" value="3">' +
+                    '<input type="radio" name="item7" value="4">' +
+                    '<input type="radio" name="item7" value="5">' +
+                    '<input type="radio" name="item7" value="6">' +
+                    '<input type="radio" name="item7" value="7">' +
+                    '</th>' +
+                    '<th>Original</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>8</th>' +
+                    '<th>Convencional</th>' +
+                    '<th><input type="radio" name="item8" value="1">' +
+                    '<input type="radio" name="item8" value="2">' +
+                    '<input type="radio" name="item8" value="3">' +
+                    '<input type="radio" name="item8" value="4">' +
+                    '<input type="radio" name="item8" value="5">' +
+                    '<input type="radio" name="item8" value="6">' +
+                    '<input type="radio" name="item8" value="7">' +
+                    '</th>' +
+                    '<th>Novedoso</th>' +
+                    '</tr>' +
+                    '</table>'
+                tbody.innerHTML = html;
+            }
+
+            function loadUEQ() {
+                var tbody = document.getElementById("listitem");
+                var html = '<table id = "listitem">' +
+                    '<tr>' +
+                    '<th>1</th>' +
+                    '<th>Desagradable</th>' +
+                    '<th><input type="radio" name="item1" value="1">' +
+                    '<input type="radio" name="item1" value="2">' +
+                    '<input type="radio" name="item1" value="3">' +
+                    '<input type="radio" name="item1" value="4">' +
+                    '<input type="radio" name="item1" value="5">' +
+                    '<input type="radio" name="item1" value="6">' +
+                    '<input type="radio" name="item1" value="7">' +
+                    '</th>' +
+                    '<th>Agradable</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>2</th>' +
+                    '<th>No entendible</th>' +
+                    '<th><input type="radio" name="item2" value="1">' +
+                    '<input type="radio" name="item2" value="2">' +
+                    '<input type="radio" name="item2" value="3">' +
+                    '<input type="radio" name="item2" value="4">' +
+                    '<input type="radio" name="item2" value="5">' +
+                    '<input type="radio" name="item2" value="6">' +
+                    '<input type="radio" name="item2" value="7">' +
+                    '</th>' +
+                    '<th>Entendible</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>3</th>' +
+                    '<th>Creativo</th>' +
+                    '<th><input type="radio" name="item3" value="1">' +
+                    '<input type="radio" name="item3" value="2">' +
+                    '<input type="radio" name="item3" value="3">' +
+                    '<input type="radio" name="item3" value="4">' +
+                    '<input type="radio" name="item3" value="5">' +
+                    '<input type="radio" name="item3" value="6">' +
+                    '<input type="radio" name="item3" value="7">' +
+                    '</th>' +
+                    '<th>Sin imaginación</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>4</th>' +
+                    '<th>Fácil de aprender</th>' +
+                    '<th><input type="radio" name="item4" value="1">' +
+                    '<input type="radio" name="item4" value="2">' +
+                    '<input type="radio" name="item4" value="3">' +
+                    '<input type="radio" name="item4" value="4">' +
+                    '<input type="radio" name="item4" value="5">' +
+                    '<input type="radio" name="item4" value="6">' +
+                    '<input type="radio" name="item4" value="7">' +
+                    '</th>' +
+                    '<th>Dificil de aprender</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>5</th>' +
+                    '<th>Valioso</th>' +
+                    '<th><input type="radio" name="item5" value="1">' +
+                    '<input type="radio" name="item5" value="2">' +
+                    '<input type="radio" name="item5" value="3">' +
+                    '<input type="radio" name="item5" value="4">' +
+                    '<input type="radio" name="item5" value="5">' +
+                    '<input type="radio" name="item5" value="6">' +
+                    '<input type="radio" name="item5" value="7">' +
+                    '</th>' +
+                    '<th>De poco valor</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>6</th>' +
+                    '<th>Aburrido</th>' +
+                    '<th><input type="radio" name="item6" value="1">' +
+                    '<input type="radio" name="item6" value="2">' +
+                    '<input type="radio" name="item6" value="3">' +
+                    '<input type="radio" name="item6" value="4">' +
+                    '<input type="radio" name="item6" value="5">' +
+                    '<input type="radio" name="item6" value="6">' +
+                    '<input type="radio" name="item6" value="7">' +
+                    '</th>' +
+                    '<th>Emocionante</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>7</th>' +
+                    '<th>No interesante</th>' +
+                    '<th><input type="radio" name="item7" value="1">' +
+                    '<input type="radio" name="item7" value="2">' +
+                    '<input type="radio" name="item7" value="3">' +
+                    '<input type="radio" name="item7" value="4">' +
+                    '<input type="radio" name="item7" value="5">' +
+                    '<input type="radio" name="item7" value="6">' +
+                    '<input type="radio" name="item7" value="7">' +
+                    '</th>' +
+                    '<th>Interesante</th>' +
+                    '</tr>' +
+                    '</table>'
+                tbody.innerHTML = html;
             }
 
         </script>

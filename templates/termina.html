@@ -41,15 +41,6 @@
         const db = getDatabase();
         var resID = Math.abs(Math.floor(Math.random() * (100000000 + 999999999) - 100000000));
         var Pin;
-        var it1;
-        var it2;
-        var it3;
-        var it4;
-        var it5;
-        var it6;
-        var it7;
-        var it8;
-
 
         function getPIN() {
             get(ref(db, "PINResp")).then((snapshot) => {
@@ -69,7 +60,7 @@
 
         function getData(Pin) {
             const dbref = ref(db);
-            get(child(dbref, "TemporalRes")).then((snapshot) => {
+            get(child(dbref, "TemporalResShort")).then((snapshot) => {
                 if (snapshot.exists()) {
                     set(ref(db, "ResCues/" + Pin + "/" + resID), {
                         item1: snapshot.val().item1,
@@ -79,7 +70,8 @@
                         item5: snapshot.val().item5,
                         item6: snapshot.val().item6,
                         item7: snapshot.val().item7,
-                        item8: snapshot.val().item8
+                        item8: snapshot.val().item8,
+
                     }).then(() => {
                         alert("Se han enviado las respuestas correctamente");
                     })

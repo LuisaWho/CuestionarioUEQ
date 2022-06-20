@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
+    <link rel="stylesheet" href="../css/respstyle.css">
+
+    <title>Cuestionario | Responder cuestionario </title>
+</head>
+
+<body>
+
+    <div class="cuestionario">
+        <h1 id="title"></h1>
+        <p id="descrip"></p>
+
+        <table id="listitem">
+        </table>
+
+        <a href="./terminaueq.html" class="pagterm">
+            <button id="Envio" class="env" type="submit">Enviar Respuesta</button>
+        </a>
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+            import { getDatabase, ref, set, get, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyBUtpFatRb8ubLIezntv_-aC5uqJ2ahAFw",
+                authDomain: "ueqdatabase-26551.firebaseapp.com",
+                databaseURL: "https://ueqdatabase-26551-default-rtdb.firebaseio.com",
+                projectId: "ueqdatabase-26551",
+                storageBucket: "ueqdatabase-26551.appspot.com",
+                messagingSenderId: "275866539227",
+                appId: "1:275866539227:web:d2ef1b9730c6a4863a28fe"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase();
+
+            var genbtn = document.getElementById("Envio");
+
+            var item22Res = document.getElementsByName("item22");
+            var item23Res = document.getElementsByName("item23");
+            var item24Res = document.getElementsByName("item24");
+            var item25Res = document.getElementsByName("item25");
+            var item26Res = document.getElementsByName("item26");
+            var Pin;
+
+            var Title = document.getElementById("title");
+            var Descrip = document.getElementById("descrip");
+
+            function getRes(item1Res) {
+                for (var i = 0, length = item1Res.length; i < length; i++) {
+                    if (item1Res[i].checked) {
+                        return item1Res[i].value;
+                    }
+                }
+            }
+
+            function saveAnsw() {
+                set(ref(db, "TemporalResUEQPag3"), {
+                    item22: getRes(item22Res),
+                    item23: getRes(item23Res),
+                    item24: getRes(item24Res),
+                    item25: getRes(item25Res),
+                    item26: getRes(item26Res)
+                });
+            }
+            genbtn.addEventListener('click', saveAnsw)
+
+            function getPIN() {
+                get(ref(db, "PINResp")).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        Pin = snapshot.val().PIN;
+                        getData(Pin);
+                    }
+                    else {
+                        alert("Error al buscar el PIN");
+                    }
+                })
+                    .catch((error) => {
+                        alert("ERROR " + error);
+                    });
+            }
+            window.onload = getPIN;
+
+            function getData(PIN) {
+                const dbref = ref(db);
+                get(child(dbref, "Cuestionarios/" + Pin)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        document.getElementById('title').innerHTML = snapshot.val().Titulo;
+                        document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
+                        loadUEQ();
+                    }
+                }).catch((error) => {
+                    alert("ERROR " + error);
+                });
+            }
+
+            function loadUEQ() {
+                var tbody = document.getElementById("listitem");
+                var html = '<table id = "listitem">'+ 
+                    '<tr>' +
+                    '<th>22</th>' + 
+                    '<th>No pragmático</th>' +
+                '<th><input type="radio" name="item22" value="1">' +
+                    '<input type="radio" name="item22" value="2">' +
+                    '<input type="radio" name="item22" value="3">' +
+                    '<input type="radio" name="item22" value="4">' +
+                    '<input type="radio" name="item22" value="5">' +
+                    '<input type="radio" name="item22" value="6">' +
+                    '<input type="radio" name="item22" value="7">' +
+                '</th>' +
+                '<th>Pragmático</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>23</th>' +
+                '<th>Ordenado</th>' +
+                '<th><input type="radio" name="item23" value="1">' +
+                    '<input type="radio" name="item23" value="2">' +
+                    '<input type="radio" name="item23" value="3">' +
+                    '<input type="radio" name="item23" value="4">' +
+                    '<input type="radio" name="item23" value="5">' +
+                    '<input type="radio" name="item23" value="6">' +
+                    '<input type="radio" name="item23" value="7">' +
+                '</th>' +
+                '<th>Sobrecargado</th>' +
+            '</tr>' +
+            '<tr>' +
+                '<th>24</th>' +
+                '<th>Atractivo</th>' +
+                '<th><input type="radio" name="item24" value="1">' +
+                    '<input type="radio" name="item24" value="2">' +
+                    '<input type="radio" name="item24" value="3">' +
+                    '<input type="radio" name="item24" value="4">' +
+                    '<input type="radio" name="item24" value="5">' +
+                    '<input type="radio" name="item24" value="6">' +
+                    '<input type="radio" name="item24" value="7">' +
+                '</th>' +
+                '<th>Feo</th>' +
+            '</tr>' +
+            '<tr>' +
+                '<th>25</th>' +
+                '<th>Simpático</th>' +
+                '<th><input type="radio" name="item25" value="1">' +
+                    '<input type="radio" name="item25" value="2">' +
+                    '<input type="radio" name="item25" value="3">' +
+                    '<input type="radio" name="item25" value="4">' +
+                    '<input type="radio" name="item25" value="5">' +
+                    '<input type="radio" name="item25" value="6">' +
+                    '<input type="radio" name="item25" value="7">' +
+                '</th>' +
+                '<th>Antipático</th>' +
+            '</tr>' +
+            '<tr>' +
+                '<th>26</th>' +
+                '<th>Conservador</th>' +
+                '<th><input type="radio" name="item26" value="1">' +
+                    '<input type="radio" name="item26" value="2">' +
+                    '<input type="radio" name="item26" value="3">' +
+                    '<input type="radio" name="item26" value="4">' +
+                    '<input type="radio" name="item26" value="5">' +
+                    '<input type="radio" name="item26" value="6">' +
+                    '<input type="radio" name="item26" value="7">' +
+                '</th>' +
+                '<th>Innovador</th>' +
+            '</tr>' +
+            '</table>' 
+                tbody.innerHTML = html;
+            }
+
+        </script>
+    </div>
+
+</body>
+
+</html>
