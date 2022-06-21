@@ -17,7 +17,7 @@
     <h1>Rellena una encuesta</h1>
 
     <div class="buscador">
-        <input id="pin" type="text" placeholder="INTRODUZCA PIN O URL" autofocus required />
+        <input id="pin" type="text" placeholder="INTRODUZCA PIN DE CUESTIONARIO" autofocus required />
         <a href="./templates/respuesta.html" class="entrar">
             <button id="Genbtn" class="entrar" type="submit">Entrar</button>
         </a>
@@ -28,10 +28,6 @@
     <h2>O crea tu propio cuestionario UEQ</h2>
 
     <div class="option">
-        <a href="./templates/export.html" class="card">
-            <p class="titulo">Datos</p>
-            <p class="descrip">Exportar Datos</p>
-
         <a href="./templates/ueq.html" class="card">
             <p class="titulo">UEQ</p>
             <p class="descrip">Versión original de UEQ</p>
@@ -46,6 +42,10 @@
                 <p class="descrip">Extensión para crear tu lista de items</p>
             </a>
     </div>
+    
+    <div class="link">
+        <a href="./templates/export.html">Exportar datos</a>
+    </di>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -64,7 +64,7 @@
         const db = getDatabase();
 
         var genbtn = document.getElementById("Genbtn");
-        var PIN = document.getElementById("PIN");
+        var PIN = document.getElementById("pin");
 
         function vaciarPIN() {
             remove(ref(db, "PINResp"));

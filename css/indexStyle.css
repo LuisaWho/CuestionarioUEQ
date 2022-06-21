@@ -14,8 +14,9 @@ body {
 }
 
 img {
-    margin-left: 46%;
-    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
@@ -24,7 +25,7 @@ h1 {
     font-size: 30px;
     color: var(--color-sub);
     margin-bottom: 70px;
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: 100;
 }
 
@@ -35,6 +36,13 @@ h2 {
     font-weight: 200;
     color: var(--color-sub);
     margin-top: 70px;
+}
+
+.link{
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 25px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .buscador {
@@ -58,13 +66,6 @@ input {
     border: 2px solid rgb(191, 191, 191);
 }
 
-.buscador .btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 button {
     width: 200px;
     padding: 12px;
@@ -78,7 +79,7 @@ button {
     border-radius: 40px;
     cursor: pointer;
     transition: all .35s;
-    margin-bottom: 15px;
+    margin-top: 10px;
     background: var(--color-azul);
     color: var(--color-blanco);
 
@@ -88,7 +89,6 @@ button:hover {
     background: var(--color-blanco);
     color: var(--color-azul);
 }
-
 
 .option {
     max-width: 1024px;
@@ -178,11 +178,6 @@ button:hover {
 
     button {
         width: 360px;
-    }
-
-    img {
-        margin-left: 42%;
-
     }
 
     

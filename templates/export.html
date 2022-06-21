@@ -1,52 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exportar datos</title>
+
+    <!-- links para exportar a excel -->
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../img/clipboard2-heart-fill.svg">
     <link rel="stylesheet" href="../css/ueqstyle.css">
-    <title>Cuestionario UEQ | Exportar Datos </title>
+    <title>Cuestionario UEQ | Exportar datos </title>
+
 </head>
 
 <body>
 
-    <div class="cabecera">
-        <h1>Exportar datos </h1>
-        <a href="../index.html" class="generado">
-            <button id="Genbtn" class="enviar" type="submit">Volver</button>
-        </a>
-
-    </div>
-
-
     <div class="cuestionario">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Country</th>
-            </tr>
-            <tr>
-                <td>John Doe</td>
-                <td>john@gmail.com</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Stephen Thomas</td>
-                <td>stephen@gmail.com</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Natly Oath</td>
-                <td>natly@gmail.com</td>
-                <td>France</td>
-            </tr>
+        <div class="buscador">
+            <input id="pin" type="text" placeholder="INTRODUZCA PIN" autofocus required />
+        </div>
+        <button id="btnExportar" class="btn btn-success">Exportar datos a Excel</button>
+
+        <table id="tabla">
         </table>
-
-        <button onclick="exportTableToCSV('members.csv')">Export HTML Table To CSV File</button>
-
     </div>
+
+
+    <!-- script para exportar a excel -->
+    <script>
+        const $btnExportar = document.querySelector("#btnExportar"),
+            $tabla = document.querySelector("#tabla");
+
+        $btnExportar.addEventListener("click", function () {
+            let tableExport = new TableExport($tabla, {
+                exportButtons: false,
+                filename: "Respuestas de cuestionarios",
+                sheetname: "Respuestas",
+            });
+            let datos = tableExport.getExportData();
+            let preferenciasDocumento = datos.tabla.xlsx;
+            tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+        });
+
+    </script>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -61,55 +63,64 @@
             messagingSenderId: "275866539227",
             appId: "1:275866539227:web:d2ef1b9730c6a4863a28fe"
         };
-
         const app = initializeApp(firebaseConfig);
         const db = getDatabase();
 
-        function downloadCSV(csv, filename) {
-            var csvFile;
-            var downloadLink;
+        var PIN = document.getElementById("PIN");
 
-            // CSV file
-            csvFile = new Blob([csv], { type: "text/csv" });
+        function postTable() {
+            alert(PIN.value);
+        }
+        window.load = postTable;
 
-            // Download link
-            downloadLink = document.createElement("a");
+        var tbody = document.getElementById("tabla");
 
-            // File name
-            downloadLink.download = filename;
+        function additems(answ1, answ2, answ3, answ4, answ5, answ6, answ7) {
+            let trow = document.createElement("tr");
+            let tres1 = document.createElement("td");
+            let tres2 = document.createElement("td");
+            let tres3 = document.createElement("td");
+            let tres4 = document.createElement("td");
+            let tres5 = document.createElement("td");
+            let tres6 = document.createElement("td");
+            let tres7 = document.createElement("td");
 
-            // Create a link to the file
-            downloadLink.href = window.URL.createObjectURL(csvFile);
+            tres1.innerHTML = answ1;
+            tres2.innerHTML = answ2;
+            tres3.innerHTML = answ3;
+            tres4.innerHTML = answ4;
+            tres5.innerHTML = answ5;
+            tres6.innerHTML = answ6;
+            tres7.innerHTML = answ7;
 
-            // Hide download link
-            downloadLink.style.display = "none";
-
-            // Add the link to DOM
-            document.body.appendChild(downloadLink);
-
-            // Click download link
-            downloadLink.click();
+            trow.appendChild(tres1);
+            trow.appendChild(tres2);
+            trow.appendChild(tres3);
+            trow.appendChild(tres4);
+            trow.appendChild(tres5);
+            trow.appendChild(tres6);
+            trow.appendChild(tres7);
+            tbody.appendChild(trow);
         }
 
-        function exportTableToCSV(filename) {
-            var csv = [];
-            var rows = document.querySelectorAll("table tr");
-
-            for (var i = 0; i < rows.length; i++) {
-                var row = [], cols = rows[i].querySelectorAll("td, th");
-
-                for (var j = 0; j < cols.length; j++)
-                    row.push(cols[j].innerText);
-
-                csv.push(row.join(","));
-            }
-
-            // Download CSV file
-            downloadCSV(csv.join("\n"), filename);
+        function datos(data) {
+            tbody.innerHTML = "";
+            data.forEach(element => {
+                additems(element.item1, "Apple", element.item3, element.item4, element.item5, element.item6, element.item7);
+            });
         }
 
-
-
+        function getData() {
+            const dbref = ref(db);
+            get(child(dbref, "ResCuesUEQ0/7843")).then((snapshot) => {
+                var data = [];
+                snapshot.forEach(childSnapshot => {
+                    data.push(childSnapshot.val());
+                });
+                datos(data);
+            });
+        }
+        window.onload = getData;
 
 
     </script>
