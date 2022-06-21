@@ -74,12 +74,7 @@
         function posPIN() {
             set(ref(db, "PINResp"), {
                 PIN: pin.value
-            }).then(() => {
-                    alert("Se ha creado correctamente el cuestionario");
-                })
-                .catch((error) => {
-                    alert("ERROR" + error);
-                });  
+            })
         }
         genbtn.addEventListener('click', posPIN)
 

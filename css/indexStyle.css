@@ -199,6 +199,10 @@ button:hover {
         font-size: 40px;
     }
 
+    .card:hover {
+        height: 450px;
+    }
+
     h2{
         font-size: 40px;
         margin-bottom: 30px;
@@ -210,6 +214,7 @@ button:hover {
         margin-left: auto;
         margin-right: auto;
         padding-top: 60px;
+        transition: none;
         flex-direction: column;
     }
 
@@ -236,18 +241,16 @@ button:hover {
     }
 
     .card .titulo {
+        margin-top: 0px;
         font-size: 50px;
     }
 
-
-
-
-
     .link {
-        font-family: 'Gill Sans', sans-serif;
-        font-size: 25px;
-        margin-top: 20px;
-        text-align: center;
+        font-size: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+
     }
 
 }
