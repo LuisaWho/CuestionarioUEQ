@@ -44,10 +44,11 @@ h3 {
     padding-left: 30px;
 }
 
-a{
-    height: 45px;
-    margin-left: 60%;
-    margin-top: 20px;
+a {
+    height: 70px;
+    width: 250px;
+    margin-left: 65%;
+    margin-top: 25px;
 }
 
 button {
@@ -129,7 +130,6 @@ label {
     align-items: center;
     position: static;
     padding: 30px;
-
 }
 
 .puntuacion {
@@ -156,21 +156,74 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-@media screen and (max-width: 700px) {
-    .btn {
-        padding-left: 20%;
-        width: 50%;
-        height: 30%;
+@media only screen and (max-device-width: 480px) {
+
+    .cuestionario{
+        max-width: 90%;
+    }
+
+    .cabecera {
+        width: 100%;
+        height: 150px;
+    }
+
+    a {
+        margin-top: 40px;
+        margin-left: 20%;
+        width: 400px;
+        height: 80px;
+    }
+
+    button{
+         border-radius: 35px;
+         height: 100%;
+         font-size: 25px;
     }
 
     h1 {
-        font-size: 0px;
+        font-size: 60px;
+        white-space: nowrap;
     }
 
+    label{
+        font-size: 40px;
+    }
     .titulo,
     .descrip {
         width: 100%;
-        margin: 10px 10px;
+        height: 150px;
+    }
+
+    input {
+        font-size: 30px;
+        width: 95%;
+        height: 70px;
+        margin-top: 20px;
+    }
+    
+    textarea {
+        font-size: 30px;
+        width: 95%;
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    h3{
+        margin-top: 280px;
+    }
+
+    .listitem {
+        padding: 20px;
+    }
+
+    td{
+        font-size: 28px;
+        word-wrap: break-word;
+    }
+
+    input[type="radio"] {
+        margin: 0px;
+        width: 20px;
     }
 
 
