@@ -38,7 +38,7 @@ h2 {
     margin-top: 70px;
 }
 
-.link{
+.link {
     font-family: 'Gill Sans', sans-serif;
     font-size: 25px;
     margin-top: 20px;
@@ -91,9 +91,8 @@ button:hover {
 }
 
 .option {
-    max-width: 1024px;
+    
     width: 100%;
-    padding: 0 4%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -167,31 +166,84 @@ button:hover {
 }
 
 @media only screen and (max-device-width: 480px) {
+    
+    img {
+        margin-top: 200px;
+        width: 150px;
+        height: 100px;
+
+    }
+
+    h1{
+    font-size: 60px;
+    margin-bottom: 30px;
+    }
+
+    .buscador {
+        height: 250px;
+    }
+    
+    input {
+        font-size: 35px;
+        width: 90%;
+        height: 70%;
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+
+    button {
+        width: 500px;
+        height: 110px;
+        border-radius: 60px;
+        font-size: 40px;
+    }
+
+    h2{
+        font-size: 40px;
+        margin-bottom: 30px;
+        margin-top: 50px;
+    }
+
+
     .option {
+        margin-left: auto;
+        margin-right: auto;
         padding-top: 60px;
         flex-direction: column;
     }
 
     .card{
-        width: 200%;
-        height: 200%;
-        
-    }
-
-    input {
-        width: 80%;
-    }
-
-    button {
-        width: 120%
-    }
-
-    img{
         margin-left: auto;
         margin-right: auto;
+        max-width: 70%;
+        height: 450px;
+        transition: none;
     }
 
-    .link{
+    .card .descrip {
+        font-family: 'Segoe UI', sans-serif;
+        width: 80%;
+        margin: 0 0;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 20px;
+        color: var(--color-sub);
+        font-weight: 400;
+        letter-spacing: 2px;
+        transition:none;
+        opacity: 1;
+    }
+
+    .card .titulo {
+        font-size: 50px;
+    }
+
+
+
+
+
+    .link {
         font-family: 'Gill Sans', sans-serif;
         font-size: 25px;
         margin-top: 20px;
