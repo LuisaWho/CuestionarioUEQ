@@ -28,13 +28,20 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 900;
     color: var(--color-azul);
-
+    margin-left: 20px;
 }
 
-.inicio{
+h2 {
+    font-size: 30px;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+
+.inicio {
     top: 50px;
     left: 25%;
     width: 20%;
@@ -47,7 +54,21 @@ h1 {
     border-radius: 40px;
 }
 
-button{
+.copy {
+    border: 2px solid var(--color-azul);
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    margin-left: 15px;
+    background: var(--color-blanco);
+    color: var(--color-azul);
+
+}
+
+.sig {
     width: 50%;
     padding: 15px;
     font-family: 'Trebuchet MS', sans-serif;
@@ -63,12 +84,17 @@ button{
     color: var(--color-blanco);
 }
 
-button:hover {
+.copy:hover {
+    background: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+.sig:hover{
     background: var(--color-blanco);
     color: var(--color-azul);
 }
 
-.cuestionario{
+.cuestionario {
     justify-content: center;
     align-items: center;
     margin: 30px auto;
@@ -76,9 +102,8 @@ button:hover {
     background-color: #fff;
     padding: 60px 20px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.025);
+    height: 400px;
 }
-
-
 
 .titulo,
 .descrip {
@@ -111,44 +136,34 @@ textarea {
     resize: vertical;
 }
 
-label {
-    line-height: 40px;
-    color: var(--color-gris);
-    font-size: 24px;
-    display: block;
-    width: 70%;
-}
 
-.listitem{
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    position: static;
-    margin-top: 50px;
-    
-}
+@media only screen and (max-device-width: 480px) {
 
-.puntuacion {
-    position: static;
-    
-}
+    .cuestionario {
+        margin-top: 50%;
+        height: 420px;
+        border-radius: 20px;
+    }
 
-input[type="radio"] {
-    position: static;
-    width: 25px;
-    margin: auto;
-    border-radius: 100%;
-    margin: 10px;
-}
+    h1 {
+        font-size: 40px;
+        padding: 5px;
+    }
 
-td{
-    font-size: large;
-    text-align: center;
+    h2 {
+        font-size: 30px;
+        padding: 5px;
+    }
 
-}
+    button {
+        font-size: 25px;
+        height: 80px;
+    }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+    .copy {
+        height: 50px;
+        width: 80px;
 
-p{
-    font-size: large;
+    }
+
 }

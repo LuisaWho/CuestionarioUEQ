@@ -108,3 +108,12 @@ h2{
     margin-left: 20px;
     font-size: 20px;
 }
+
+@media only screen and (max-device-width: 480px) {
+
+    .cuestionario {
+        max-width: 100%;
+    }
+
+
+}

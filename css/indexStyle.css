@@ -26,7 +26,7 @@ h1 {
     color: var(--color-sub);
     margin-bottom: 70px;
     margin-top: 20px;
-    font-weight: 100;
+    font-weight: 500;
 }
 
 h2 {
@@ -168,33 +168,32 @@ button:hover {
 @media only screen and (max-device-width: 480px) {
     
     img {
-        margin-top: 200px;
+        margin-top: 400px;
         width: 150px;
         height: 100px;
-
     }
 
     h1{
-    font-size: 60px;
+    font-size: 70px;
     margin-bottom: 30px;
     }
 
     .buscador {
-        height: 250px;
+        height: 300px;
     }
     
     input {
-        font-size: 35px;
+        font-size: 45px;
         width: 90%;
-        height: 70%;
-        border-radius: 20px;
+        height: 90%;
+        border-radius: 30px;
         box-sizing: border-box;
         margin-bottom: 30px;
     }
 
     button {
-        width: 500px;
-        height: 110px;
+        width: 550px;
+        height: 130px;
         border-radius: 60px;
         font-size: 40px;
     }
@@ -204,7 +203,7 @@ button:hover {
     }
 
     h2{
-        font-size: 40px;
+        font-size: 50px;
         margin-bottom: 30px;
         margin-top: 50px;
     }
