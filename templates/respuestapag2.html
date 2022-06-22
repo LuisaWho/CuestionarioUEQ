@@ -16,7 +16,7 @@
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
-        <table id="listitem">
+        <table id="listitem" class = "tableStyle">
         </table>
 
         <a href="./respuestapag3.html" class="pagsig">
@@ -106,14 +106,14 @@
 
             function loadUEQ() {
                 var tbody = document.getElementById("listitem");
-                var html = '<table id = "listitem">'+ 
+                var html = 
                     '<tr>' +
                     '<th>15</th>' + 
                     '<th>Convencional</th>' +
                 '<th><input type="radio" name="item15" value="1">' +
                     '<input type="radio" name="item15" value="2">' +
                     '<input type="radio" name="item15" value="3">' +
-                    '<input type="radio" name="item15" value="4">' +
+                    '<input type="radio" name="item15" value="4" checked="true">' +
                     '<input type="radio" name="item15" value="5">' +
                     '<input type="radio" name="item15" value="6">' +
                     '<input type="radio" name="item15" value="7">' +
@@ -126,7 +126,7 @@
                 '<th><input type="radio" name="item16" value="1">' +
                     '<input type="radio" name="item16" value="2">' +
                     '<input type="radio" name="item16" value="3">' +
-                    '<input type="radio" name="item16" value="4">' +
+                    '<input type="radio" name="item16" value="4" checked="true">' +
                     '<input type="radio" name="item16" value="5">' +
                     '<input type="radio" name="item16" value="6">' +
                     '<input type="radio" name="item16" value="7">' +
@@ -139,7 +139,7 @@
                 '<th><input type="radio" name="item17" value="1">' +
                     '<input type="radio" name="item17" value="2">' +
                     '<input type="radio" name="item17" value="3">' +
-                    '<input type="radio" name="item17" value="4">' +
+                    '<input type="radio" name="item17" value="4" checked="true">' +
                     '<input type="radio" name="item17" value="5">' +
                     '<input type="radio" name="item17" value="6">' +
                     '<input type="radio" name="item17" value="7">' +
@@ -152,7 +152,7 @@
                 '<th><input type="radio" name="item18" value="1">' +
                     '<input type="radio" name="item18" value="2">' +
                     '<input type="radio" name="item18" value="3">' +
-                    '<input type="radio" name="item18" value="4">' +
+                    '<input type="radio" name="item18" value="4" checked="true">' +
                     '<input type="radio" name="item18" value="5">' +
                     '<input type="radio" name="item18" value="6">' +
                     '<input type="radio" name="item18" value="7">' +
@@ -165,7 +165,7 @@
                 '<th><input type="radio" name="item19" value="1">' +
                     '<input type="radio" name="item19" value="2">' +
                     '<input type="radio" name="item19" value="3">' +
-                    '<input type="radio" name="item19" value="4">' +
+                    '<input type="radio" name="item19" value="4" checked="true">' +
                     '<input type="radio" name="item19" value="5">' +
                     '<input type="radio" name="item19" value="6">' +
                     '<input type="radio" name="item19" value="7">' +
@@ -178,7 +178,7 @@
                 '<th><input type="radio" name="item20" value="1">' +
                     '<input type="radio" name="item20" value="2">' +
                     '<input type="radio" name="item20" value="3">' +
-                    '<input type="radio" name="item20" value="4">' +
+                    '<input type="radio" name="item20" value="4" checked="true">' +
                     '<input type="radio" name="item20" value="5">' +
                     '<input type="radio" name="item20" value="6">' +
                     '<input type="radio" name="item20" value="7">' +
@@ -191,14 +191,13 @@
                 '<th><input type="radio" name="item21" value="1">' +
                     '<input type="radio" name="item21" value="2">' +
                     '<input type="radio" name="item21" value="3">' +
-                    '<input type="radio" name="item21" value="4">' +
+                    '<input type="radio" name="item21" value="4" checked="true">' +
                     '<input type="radio" name="item21" value="5">' +
                     '<input type="radio" name="item21" value="6">' +
                     '<input type="radio" name="item21" value="7">' +
                 '</th>' +
                 '<th>Confuso</th>' +
-            '</tr>' +
-            '</table>' 
+            '</tr>' 
                 tbody.innerHTML = html;
             }
 

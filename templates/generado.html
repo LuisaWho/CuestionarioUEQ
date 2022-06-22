@@ -18,7 +18,11 @@
         </div>
 
         <h2>PIN para entrar al cuestionario: </h2>
-        <h2 id = "PIN"></h2>
+        <h2 id="PIN"></h2>
+        <button id="Copiar" class="copy">Copiar</button>
+
+        <h2>¡ATENCIÓN! Debe guardar dicho PIN para la consulta de resultados. </h2>
+
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
@@ -37,12 +41,17 @@
             const app = initializeApp(firebaseConfig);
             const db = getDatabase();
             var escr = document.getElementById("esc");
+            var copybtn = document.getElementById("Copiar");
+
 
             function SelectData() {
                 const dbref = ref(db);
                 get(child(dbref, "ultPIN")).then((snapshot) => {
                     if (snapshot.exists()) {
                         document.getElementById('PIN').innerHTML = snapshot.val().ID;
+                        document.getElementById('PIN').value = snapshot.val().ID;
+
+
                     }
                     else {
                         alert("Error al buscar el PIN");
@@ -54,9 +63,17 @@
             }
             window.onload = SelectData;
 
-        </script>
+            function myFunction() {
+                var copyText = document.getElementById("PIN");
 
-        <h2>O comparte mediante URL:</h2>
+                navigator.clipboard.writeText(copyText.value);
+                alert("PIN copiado");
+            }
+            copybtn.addEventListener('click', myFunction)
+
+
+
+        </script>
 
         <a href="../index.html" class="inicio">
             <button class="sig" type="submit">Volver a la página principal</button>

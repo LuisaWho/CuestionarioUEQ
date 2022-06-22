@@ -107,6 +107,7 @@
             tbody.innerHTML = "";
             data.forEach(element => {
                 additems(element.item1, "Apple", element.item3, element.item4, element.item5, element.item6, element.item7);
+                document.getElementById('PIN').value = snapshot.val().ID;
             });
         }
 
