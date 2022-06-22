@@ -38,11 +38,8 @@ h1 {
     white-space: nowrap;
 }
 
-h3 {
-    font-size: 20px;
-    font-weight: 200;
-    color: var(--color-sub);
-    padding-left: 30px;
+h2 {  
+    margin-left: 30px;
 }
 
 a {
@@ -90,16 +87,14 @@ button:hover {
     margin: 10px 30px;
 }
 
-input {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 17px;
-    width: 95%;
-    height: 25px;
-    box-sizing: border-box;
-    padding: 15px;
-    line-height: 150%;
-    border-radius: 10px;
-    border: 2px solid rgb(191, 191, 191);
+.buscador {
+    width: 97%;
+    height: 30px;
+    flex-direction: column;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 textarea {

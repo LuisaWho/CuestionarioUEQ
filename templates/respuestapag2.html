@@ -16,7 +16,7 @@
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
-        <table id="listitem" class = "tableStyle">
+        <table id="listitem" class="tableStyle">
         </table>
 
         <a href="./respuestapag3.html" class="pagsig">
@@ -106,98 +106,133 @@
 
             function loadUEQ() {
                 var tbody = document.getElementById("listitem");
-                var html = 
+                var html =
                     '<tr>' +
-                    '<th>15</th>' + 
+                    '<th>15</th>' +
                     '<th>Convencional</th>' +
-                '<th><input type="radio" name="item15" value="1">' +
+                    '<th>' +
+                    '<div class="row">' +
+                    '<label class="labelClassI">Convencional</label>' +
+                    '<label class="labelClassD">Novedoso</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item15" value="1">' +
                     '<input type="radio" name="item15" value="2">' +
                     '<input type="radio" name="item15" value="3">' +
                     '<input type="radio" name="item15" value="4" checked="true">' +
                     '<input type="radio" name="item15" value="5">' +
                     '<input type="radio" name="item15" value="6">' +
                     '<input type="radio" name="item15" value="7">' +
-                '</th>' +
-                '<th>Novedoso</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>16</th>' +
-                '<th>Incómodo</th>' +
-                '<th><input type="radio" name="item16" value="1">' +
+                    '</th>' +
+                    '<th>Novedoso</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>16</th>' +
+                    '<th>Incómodo</th>' +
+                    '<th>'+
+                    '<div class="row">' +
+                    '<label class="labelClassI">Incómodo</label>' +
+                    '<label class="labelClassD">Cómodo</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item16" value="1">' +
                     '<input type="radio" name="item16" value="2">' +
                     '<input type="radio" name="item16" value="3">' +
                     '<input type="radio" name="item16" value="4" checked="true">' +
                     '<input type="radio" name="item16" value="5">' +
                     '<input type="radio" name="item16" value="6">' +
                     '<input type="radio" name="item16" value="7">' +
-                '</th>' +
-                '<th>Cómodo</th>' +
-            '</tr>' +
-            '<tr>' +
-                '<th>17</th>' +
-                '<th>Seguro</th>' +
-                '<th><input type="radio" name="item17" value="1">' +
+                    '</th>' +
+                    '<th>Cómodo</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>17</th>' +
+                    '<th>Seguro</th>' +
+                    '<th>' +
+                    '<div class="row">' +
+                    '<label class="labelClassI">Seguro</label>' +
+                    '<label class="labelClassD">Inseguro</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item17" value="1">' +
                     '<input type="radio" name="item17" value="2">' +
                     '<input type="radio" name="item17" value="3">' +
                     '<input type="radio" name="item17" value="4" checked="true">' +
                     '<input type="radio" name="item17" value="5">' +
                     '<input type="radio" name="item17" value="6">' +
                     '<input type="radio" name="item17" value="7">' +
-                '</th>' +
-                '<th>Inseguro</th>' +
-            '</tr>' +
-            '<tr>' +
-                '<th>18</th>' +
-                '<th>Activante</th>' +
-                '<th><input type="radio" name="item18" value="1">' +
+                    '</th>' +
+                    '<th>Inseguro</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>18</th>' +
+                    '<th>Activante</th>' +
+                    '<th>' +
+                    '<div class="row">' +
+                    '<label class="labelClassI">Activante</label>' +
+                    '<label class="labelClassD">Adormecedor</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item18" value="1">' +
                     '<input type="radio" name="item18" value="2">' +
                     '<input type="radio" name="item18" value="3">' +
                     '<input type="radio" name="item18" value="4" checked="true">' +
                     '<input type="radio" name="item18" value="5">' +
                     '<input type="radio" name="item18" value="6">' +
                     '<input type="radio" name="item18" value="7">' +
-                '</th>' +
-                '<th>Adormecedor</th>' +
-            '</tr>' +
-            '<tr>' +
-                '<th>19</th>' +
-                '<th>Cubre expectativas</th>' +
-                '<th><input type="radio" name="item19" value="1">' +
+                    '</th>' +
+                    '<th>Adormecedor</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>19</th>' +
+                    '<th>Cubre expectativas</th>' +
+                    '<th>' +
+                    '<div class="row">' +
+                    '<label class="labelClassI">Cubre expectativas</label>' +
+                    '<label class="labelClassD">No cubre expectativas</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item19" value="1">' +
                     '<input type="radio" name="item19" value="2">' +
                     '<input type="radio" name="item19" value="3">' +
                     '<input type="radio" name="item19" value="4" checked="true">' +
                     '<input type="radio" name="item19" value="5">' +
                     '<input type="radio" name="item19" value="6">' +
                     '<input type="radio" name="item19" value="7">' +
-                '</th>' +
-                '<th>No cubre expectativas</th>' +
-            '</tr>' +
-            '<tr>' +
-                '<th>20</th>' +
-                '<th>Ineficiente</th>' +
-                '<th><input type="radio" name="item20" value="1">' +
+                    '</th>' +
+                    '<th>No cubre expectativas</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>20</th>' +
+                    '<th>Ineficiente</th>' +
+                    '<th>' + 
+                    '<div class="row">' +
+                    '<label class="labelClassI">Ineficiente</label>' +
+                    '<label class="labelClassD">Eficiente</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item20" value="1">' +
                     '<input type="radio" name="item20" value="2">' +
                     '<input type="radio" name="item20" value="3">' +
                     '<input type="radio" name="item20" value="4" checked="true">' +
                     '<input type="radio" name="item20" value="5">' +
                     '<input type="radio" name="item20" value="6">' +
                     '<input type="radio" name="item20" value="7">' +
-                '</th>' +
-                '<th>Eficiente</th>' +
-            '</tr>' +
-            '<tr>' +
-                '<th>21</th>' +
-                '<th>Claro</th>' +
-                '<th><input type="radio" name="item21" value="1">' +
+                    '</th>' +
+                    '<th>Eficiente</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th>21</th>' +
+                    '<th>Claro</th>' +
+                    '<th>'+
+                    '<div class="row">' +
+                    '<label class="labelClassI">Claro</label>' +
+                    '<label class="labelClassD">Confuso</label>' +
+                    '</div>' +
+                    '<input type="radio" name="item21" value="1">' +
                     '<input type="radio" name="item21" value="2">' +
                     '<input type="radio" name="item21" value="3">' +
                     '<input type="radio" name="item21" value="4" checked="true">' +
                     '<input type="radio" name="item21" value="5">' +
                     '<input type="radio" name="item21" value="6">' +
                     '<input type="radio" name="item21" value="7">' +
-                '</th>' +
-                '<th>Confuso</th>' +
-            '</tr>' 
+                    '</th>' +
+                    '<th>Confuso</th>' +
+                    '</tr>'
                 tbody.innerHTML = html;
             }
 

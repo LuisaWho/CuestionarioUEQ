@@ -17,16 +17,6 @@ body {
     margin: 0;
 }
 
-.cabecera {
-    display: flex;
-    background-color: var(--color-blanco);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 90px;
-    box-shadow: 0 14px 26px hsla(0, 0%, 0%, 0.025);
-}
-
 h1 {
     font-size: 40px;
     font-weight: 900;
@@ -34,14 +24,7 @@ h1 {
     margin-left: 20px;
 }
 
-h2 {
-    font-size: 30px;
-    margin-left: 15px;
-    display: inline-block;
-}
-
-
-.inicio {
+.siglink {
     top: 50px;
     left: 25%;
     width: 20%;
@@ -52,20 +35,6 @@ h2 {
     letter-spacing: 1px;
     position: relative;
     border-radius: 40px;
-}
-
-.copy {
-    border: 2px solid var(--color-azul);
-    font-size: 15px;
-    width: 80px;
-    height: 40px;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 5px;
-    margin-left: 15px;
-    background: var(--color-blanco);
-    color: var(--color-azul);
-
 }
 
 .sig {
@@ -84,11 +53,6 @@ h2 {
     color: var(--color-blanco);
 }
 
-.copy:hover {
-    background: var(--color-azul);
-    color: var(--color-blanco);
-}
-
 .sig:hover{
     background: var(--color-blanco);
     color: var(--color-azul);
@@ -102,46 +66,23 @@ h2 {
     background-color: #fff;
     padding: 60px 20px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.025);
-    height: 400px;
+    height: 200px;
 }
 
-.titulo,
-.descrip {
+.titulo{
     justify-content: center;
     align-items: center;
     margin: 30px auto;
 }
 
-input {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 15px;
-    width: 95%;
-    height: 25px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    padding: 15px;
-    line-height: 150%;
-}
 
-textarea {
-    width: 95%;
-    min-height: 100px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 15px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    padding: 15px;
-    line-height: 150%;
-    height: 100px;
-    resize: vertical;
-}
 
 
 @media only screen and (max-device-width: 480px) {
 
     .cuestionario {
         margin-top: 50%;
-        height: 420px;
+        height: 300px;
         border-radius: 20px;
     }
 
@@ -150,19 +91,10 @@ textarea {
         padding: 5px;
     }
 
-    h2 {
+    .sig {
         font-size: 30px;
-        padding: 5px;
-    }
-
-    button {
-        font-size: 25px;
-        height: 80px;
-    }
-
-    .copy {
-        height: 50px;
-        width: 80px;
+        height: 100px;
+        width: 350px;
 
     }
 
