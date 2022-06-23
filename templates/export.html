@@ -23,15 +23,47 @@
     <div class="cuestionario">
         <h1>Exportar resultados</h1>
         <h2>Introduzca el PIN del cuestionario que desea exportar los resultados</h2>
+
         <div class="buscador">
             <input id="pin" type="text" placeholder="INTRODUZCA PIN" autofocus required />
+            <button id="btnCargar">Cargar resultados</button>
+            <button id="btnExportar" hidden>Exportar datos a Excel</button>
         </div>
-        <button id="btnExportar" class="btn btn-success">Exportar datos a Excel</button>
 
-        <table id="tabla">
+        <h3> </h3>
+        <table id = "tabla" class="listitem">
+            <trow>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>19</th>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+                <th>24</th>
+                <th>25</th>
+                <th>26</th>
+            </trow>
+            
+            <tbody id="answers">
+            </tbody>
         </table>
-    </div>
-
 
     <!-- script para exportar a excel -->
     <script>
@@ -66,64 +98,127 @@
         };
         const app = initializeApp(firebaseConfig);
         const db = getDatabase();
+        var PIN = document.getElementById("pin");
+        var btnCarga = document.getElementById("btnCargar");
+        var btnExport = document.getElementById("btnExportar");
 
-        var PIN = document.getElementById("PIN");
-
-        function postTable() {
-            alert(PIN.value);
-        }
-        window.load = postTable;
-
-        var tbody = document.getElementById("tabla");
-
-        function additems(answ1, answ2, answ3, answ4, answ5, answ6, answ7) {
-            let trow = document.createElement("tr");
-            let tres1 = document.createElement("td");
-            let tres2 = document.createElement("td");
-            let tres3 = document.createElement("td");
-            let tres4 = document.createElement("td");
-            let tres5 = document.createElement("td");
-            let tres6 = document.createElement("td");
-            let tres7 = document.createElement("td");
-
-            tres1.innerHTML = answ1;
-            tres2.innerHTML = answ2;
-            tres3.innerHTML = answ3;
-            tres4.innerHTML = answ4;
-            tres5.innerHTML = answ5;
-            tres6.innerHTML = answ6;
-            tres7.innerHTML = answ7;
-
-            trow.appendChild(tres1);
-            trow.appendChild(tres2);
-            trow.appendChild(tres3);
-            trow.appendChild(tres4);
-            trow.appendChild(tres5);
-            trow.appendChild(tres6);
-            trow.appendChild(tres7);
-            tbody.appendChild(trow);
+        function displayExport() {
+            btnExport.hidden = false;
         }
 
-        function datos(data) {
+        var tbody = document.getElementById("answers");
+
+        function addAnsw(an1, an2, an3, an4, an5, an6, an7, an8, an9, an10, an11, an12, an13, an14, 
+        an15, an16, an17, an18, an19, an20, an21, an22, an23, an24, an25, an26) {
+            let trow = document.createElement("tr")
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
+            let td6 = document.createElement("td");
+            let td7 = document.createElement("td");
+            let td8 = document.createElement("td");
+            let td9 = document.createElement("td");
+            let td10 = document.createElement("td");
+            let td11 = document.createElement("td");
+            let td12 = document.createElement("td");
+            let td13 = document.createElement("td");
+            let td14 = document.createElement("td");
+            let td15 = document.createElement("td");
+            let td16 = document.createElement("td");
+            let td17 = document.createElement("td");
+            let td18 = document.createElement("td");
+            let td19 = document.createElement("td");
+            let td20 = document.createElement("td");
+            let td21 = document.createElement("td");
+            let td22 = document.createElement("td");
+            let td23 = document.createElement("td");
+            let td24 = document.createElement("td");
+            let td25 = document.createElement("td");
+            let td26 = document.createElement("td");
+
+            td1.innerHTML = an1;
+            td2.innerHTML = an2;
+            td3.innerHTML = an3;
+            td4.innerHTML = an4;
+            td5.innerHTML = an5;
+            td6.innerHTML = an6;
+            td7.innerHTML = an7;
+            td8.innerHTML = an8;
+            td9.innerHTML = an9;
+            td10.innerHTML = an10;
+            td11.innerHTML = an11;
+            td12.innerHTML = an12;
+            td13.innerHTML = an13;
+            td14.innerHTML = an14;
+            td15.innerHTML = an15;
+            td16.innerHTML = an16;
+            td17.innerHTML = an17;
+            td18.innerHTML = an18;
+            td19.innerHTML = an19;
+            td20.innerHTML = an20;
+            td21.innerHTML = an21;
+            td22.innerHTML = an22;
+            td23.innerHTML = an23;
+            td24.innerHTML = an24;
+            td25.innerHTML = an25;
+            td26.innerHTML = an26;
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+            trow.appendChild(td6);
+            trow.appendChild(td7);
+            trow.appendChild(td8);
+            trow.appendChild(td9);
+            trow.appendChild(td10);
+            trow.appendChild(td11);
+            trow.appendChild(td12);
+            trow.appendChild(td13);
+            trow.appendChild(td14);
+            trow.appendChild(td15);
+            trow.appendChild(td16);
+            trow.appendChild(td17);
+            trow.appendChild(td18);
+            trow.appendChild(td19);
+            trow.appendChild(td20);
+            trow.appendChild(td21);
+            trow.appendChild(td22);
+            trow.appendChild(td23);
+            trow.appendChild(td24);
+            trow.appendChild(td25);
+            trow.appendChild(td26);
+            tbody.appendChild(trow)
+            
+        }
+
+        function datos(answers) {
             tbody.innerHTML = "";
-            data.forEach(element => {
-                additems(element.item1, "Apple", element.item3, element.item4, element.item5, element.item6, element.item7);
-                document.getElementById('PIN').value = snapshot.val().ID;
+            answers.forEach(element => {
+                addAnsw(element.item01, element.item02, element.item03, element.item04, element.item05, element.item06,
+                element.item07, element.item08, element.item09, element.item10, element.item11, element.item12,
+                element.item13, element.item14, element.item15, element.item16, element.item17, element.item18,
+                element.item19, element.item20,element.item21, element.item22,element.item23, element.item24,
+                element.item25, element.item26);
             });
         }
 
         function getData() {
             const dbref = ref(db);
-            get(child(dbref, "ResCuesUEQ0/7843")).then((snapshot) => {
-                var data = [];
+            get(child(dbref, PIN.value)).then((snapshot) => {
+                var res = [];
                 snapshot.forEach(childSnapshot => {
-                    data.push(childSnapshot.val());
+                    res.push(childSnapshot.val());
+                    displayExport();
                 });
-                datos(data);
+                datos(res);
             });
         }
-        window.onload = getData;
-
+        btnCarga.addEventListener("click", getData)
+        
 
     </script>
 

@@ -65,14 +65,14 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag0")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    set(ref(db, "ResCuesUEQ0/" + Pin + "/" + resID), {
-                        item1: snapshot.val().item1,
-                        item2: snapshot.val().item2,
-                        item3: snapshot.val().item3,
-                        item4: snapshot.val().item4,
-                        item5: snapshot.val().item5,
-                        item6: snapshot.val().item6,
-                        item7: snapshot.val().item7,
+                    update(ref(db,  Pin + "/" + resID), {
+                        item01: snapshot.val().item01,
+                        item02: snapshot.val().item02,
+                        item03: snapshot.val().item03,
+                        item04: snapshot.val().item04,
+                        item05: snapshot.val().item05,
+                        item06: snapshot.val().item06,
+                        item07: snapshot.val().item07,
 
                     })
                     remove(ref(db, "TemporalResUEQPag0"));
@@ -89,9 +89,9 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag1")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    set(ref(db, "ResCuesUEQ1/" + Pin + "/" + resID), {
-                        item8: snapshot.val().item8,
-                        item9: snapshot.val().item9,
+                    update(ref(db,  Pin + "/" + resID), {
+                        item08: snapshot.val().item08,
+                        item09: snapshot.val().item09,
                         item10: snapshot.val().item10,
                         item11: snapshot.val().item11,
                         item12: snapshot.val().item12,
@@ -112,7 +112,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag2")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    set(ref(db, "ResCuesUeq2/" + Pin + "/" + resID), {
+                    update(ref(db,  Pin + "/" + resID), {
                         item15: snapshot.val().item15,
                         item16: snapshot.val().item16,
                         item17: snapshot.val().item17,
@@ -135,7 +135,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag3")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    set(ref(db, "ResCuesUEQ3/" + Pin + "/" + resID), {
+                    update(ref(db, Pin + "/" + resID), {
                         item22: snapshot.val().item22,
                         item23: snapshot.val().item23,
                         item24: snapshot.val().item24,
@@ -153,6 +153,8 @@
                 alert("ERROR NO CONTEMPLADO " + error);
             });
         }
+
+        
         
     </script>
 

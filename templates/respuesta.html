@@ -64,14 +64,14 @@
             var genbtn = document.getElementById("Envio");
             var sigbtn = document.getElementById("Siguiente");
 
-            var item1Res = document.getElementsByName("item1");
-            var item2Res = document.getElementsByName("item2");
-            var item3Res = document.getElementsByName("item3");
-            var item4Res = document.getElementsByName("item4");
-            var item5Res = document.getElementsByName("item5");
-            var item6Res = document.getElementsByName("item6");
-            var item7Res = document.getElementsByName("item7");
-            var item8Res = document.getElementsByName("item8");
+            var item01Res = document.getElementsByName("item1");
+            var item02Res = document.getElementsByName("item2");
+            var item03Res = document.getElementsByName("item3");
+            var item04Res = document.getElementsByName("item4");
+            var item05Res = document.getElementsByName("item5");
+            var item06Res = document.getElementsByName("item6");
+            var item07Res = document.getElementsByName("item7");
+            var item08Res = document.getElementsByName("item8");
 
             var Pin;
 
@@ -96,27 +96,27 @@
 
             function saveAnswShort() {
                 set(ref(db, "TemporalResShort"), {
-                    item1: getRes(item1Res),
-                    item2: getRes(item2Res),
-                    item3: getRes(item3Res),
-                    item4: getRes(item4Res),
-                    item5: getRes(item5Res),
-                    item6: getRes(item6Res),
-                    item7: getRes(item7Res),
-                    item8: getRes(item8Res)
+                    item01: getRes(item01Res),
+                    item02: getRes(item02Res),
+                    item03: getRes(item03Res),
+                    item04: getRes(item04Res),
+                    item05: getRes(item05Res),
+                    item06: getRes(item06Res),
+                    item07: getRes(item07Res),
+                    item08: getRes(item08Res)
                 });
             }
             genbtn.addEventListener('click', saveAnswShort)
 
             function saveAnsw() {
                 set(ref(db, "TemporalResUEQPag0"), {
-                    item1: getRes(item1Res),
-                    item2: getRes(item2Res),
-                    item3: getRes(item3Res),
-                    item4: getRes(item4Res),
-                    item5: getRes(item5Res),
-                    item6: getRes(item6Res),
-                    item7: getRes(item7Res),
+                    item01: getRes(item01Res),
+                    item02: getRes(item02Res),
+                    item03: getRes(item03Res),
+                    item04: getRes(item04Res),
+                    item05: getRes(item05Res),
+                    item06: getRes(item06Res),
+                    item07: getRes(item07Res),
                 });
             }
             sigbtn.addEventListener('click', saveAnsw)

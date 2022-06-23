@@ -29,9 +29,9 @@ body {
 }
 
 h1 {
-    font-family: 'Gill Sans', sans-serif;
-    font-size: 30px;
-    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
     color: var(--color-azul);
     padding-left: 30px;
     padding-top: 10px;
@@ -74,7 +74,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     margin: 30px auto;
-    max-width: 80%;
+    width: 600px;
+    height: auto;
     background-color: #fff;
     padding: 30px 20px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.025);
@@ -97,55 +98,72 @@ button:hover {
     align-items: center;
 }
 
-textarea {
-    width: 95%;
-    min-height: 100px;
+button {
+    width: 300px;
+    padding: 12px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    align-self: center;
+    border: 3px solid var(--color-azul);
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all .35s;
+    margin-top: 10px;
+    background: var(--color-azul);
+    color: var(--color-blanco);
+
+}
+
+button:hover {
+    background: var(--color-blanco);
+    color: var(--color-azul);
+}
+
+input {
     font-family: 'Segoe UI', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
+    width: 500px;
+    height: 55px;
+    border-radius: 30px;
     box-sizing: border-box;
     margin-bottom: 20px;
     padding: 15px;
-    line-height: 150%;
-    height: 100px;
-    resize: vertical;
-    border-radius: 10px;
     border: 2px solid rgb(191, 191, 191);
+    margin-top: 150px;
 }
 
-label {
-    line-height: 40px;
-    color: var(--color-gris);
-    font-size: 24px;
-    display: block;
-    width: 70%;
+h3{
+    margin-top: 170px;
 }
 
-.listitem {
+th{
+    background-color: #b7ccff;
+}
+
+
+table {
     width: 100%;
     justify-content: center;
     align-items: center;
     position: static;
     padding: 30px;
-}
-
-.puntuacion {
-    position: static;
-
-}
-
-input[type="radio"] {
-    pointer-events: none;
-    position: static;
-    width: 25px;
-    margin: auto;
-    border-radius: 100%;
-    margin: 10px;
+    margin-top: 0px;
+    border: 1px solid;
+    border-collapse: collapse;
 }
 
 td {
     font-size: large;
     text-align: center;
+    border: 1px solid;
 
+}
+
+th{
+    border: 1px solid;
 }
 
 tr:nth-child(even) {
@@ -155,48 +173,51 @@ tr:nth-child(even) {
 @media only screen and (max-device-width: 480px) {
 
     .cuestionario{
-        max-width: 90%;
+        width: 90%;
+        margin-top: 100px;
     }
 
-    .cabecera {
-        width: 100%;
-        height: 150px;
-    }
-
-    a {
-        margin-top: 40px;
-        margin-left: 18%;
-        width: 400px;
-        height: 80px;
+    .buscador {
+        width: 97%;
+        height: 30px;
+        flex-direction: column;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     button{
          border-radius: 35px;
-         height: 100%;
-         font-size: 25px;
+         height: 150px;
+         font-size: 20px;
 
     }
 
     h1 {
-        font-size: 60px;
+        font-size: 30px;
         white-space: nowrap;
     }
 
-    label{
-        font-size: 50px;
-
+    h2{
+        font-size: 20px;
     }
-    .titulo,
-    .descrip {
-        width: 100%;
-        height: 220px;
+
+    .buscador {
+        width: 97%;
+        height: 30px;
+        flex-direction: column;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     input {
-        font-size: 45px;
+        font-size: 20px;
         width: 95%;
-        height: 130px;
-        margin-top: 20px;
+        height: 35px;
+        margin-top: 150px;
     }
     
     textarea {
@@ -206,13 +227,8 @@ tr:nth-child(even) {
         margin-top: 45px;
     }
 
-    h3{
-        margin-top: 400px;
-        font-size: 30px;
-    }
-
     .listitem {
-        padding: 20px;
+        display: none;
     }
 
     td{

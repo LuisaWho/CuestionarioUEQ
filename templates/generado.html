@@ -51,7 +51,6 @@
                         document.getElementById('PIN').innerHTML = snapshot.val().ID;
                         document.getElementById('PIN').value = snapshot.val().ID;
 
-
                     }
                     else {
                         alert("Error al buscar el PIN");
@@ -65,9 +64,8 @@
 
             function myFunction() {
                 var copyText = document.getElementById("PIN");
-
                 navigator.clipboard.writeText(copyText.value);
-                alert("PIN copiado");
+                alert("PIN copiado: " + copyText.value);
             }
             copybtn.addEventListener('click', myFunction)
 
