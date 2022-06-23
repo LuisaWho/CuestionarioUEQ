@@ -16,27 +16,29 @@
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
-        <div id="Ins">
-        <h2>Instrucciones</h2>
-        <p> El cuestionario se compone de pares de propiedades opuestas que el producto puede tener. <br>
-            Usted puede expresar su conformidad con una propiedad marcando uno de los círculos que mejor refleje su impresión.<br>
-            <b>Ejemplo:</b><br>
-        </p>
-        <img class="Ejemplo1" src="../img/Ejemplo.png" width="740" height="50">
-        <img class ="Ejemplo2" src="../img/EjemploMob.png" width="740" height="250">
+        <div id="Ins" hidden>
+            <h2>Instrucciones</h2>
+            <p> El cuestionario se compone de pares de propiedades opuestas que el producto puede tener. <br>
+                Usted puede expresar su conformidad con una propiedad marcando uno de los círculos que mejor refleje su
+                impresión.<br>
+                <b>Ejemplo:</b><br>
+            </p>
+            <img class="Ejemplo1" src="../img/Ejemplo.png" width="740" height="50">
+            <img class="Ejemplo2" src="../img/EjemploMob.png" width="740" height="250">
 
-        <p>
-            Esta gradación significaría que usted evalúa el producto no interesante que 
-            interesante.<br>
-            Por favor, decida espontáneamente. <br>
-            Por favor, marque un círculo para cada par de propiedades, aunque piense 
-            que no son aplicables o que hay propiedades parecidas o iguales. <br>
-            <b>Recuerde: ¡no hay respuesta correcta o 
-            incorrecta!</b></p>
+            <p>
+                Esta gradación significaría que usted evalúa el producto no interesante que
+                interesante.<br>
+                Por favor, decida espontáneamente. <br>
+                Por favor, marque un círculo para cada par de propiedades, aunque piense
+                que no son aplicables o que hay propiedades parecidas o iguales. <br>
+                <b>Recuerde: ¡no hay respuesta correcta o
+                    incorrecta!</b>
+            </p>
         </div>
 
 
-        <table id="listitem" class = "tableStyle">
+        <table id="listitem" class="tableStyle">
         </table>
 
         <a href="./termina.html" class="pagterm">
@@ -50,7 +52,6 @@
         <a href="../index.html" class="pagsig">
             <button id="volver" class="pagvolv" type="submit" hidden>Volver a la página principal</button>
         </a>
-
 
 
         <script type="module">
@@ -87,11 +88,11 @@
             var Title = document.getElementById("title");
             var Descrip = document.getElementById("descrip");
 
-            function displaySig(){
-                    document.getElementById('Siguiente').hidden = false;
-                }
-            
-            function displayFin(){
+            function displaySig() {
+                document.getElementById('Siguiente').hidden = false;
+            }
+
+            function displayFin() {
                 document.getElementById('Envio').hidden = false;
             }
 
@@ -133,8 +134,9 @@
 
             function getPIN() {
                 get(ref(db, "PINResp")).then((snapshot) => {
-                    if (snapshot.exists()) {
+                    if (snapshot.exists() && snapshot.val().PIN !== "" ) {
                         Pin = snapshot.val().PIN;
+                        posPIN(Pin);
                         getData(Pin);
                     }
                     else {
@@ -147,6 +149,25 @@
             }
             window.onload = getPIN;
 
+            function posPIN(pinVal) {
+                const dbref = ref(db);
+                get(child(dbref, "ExportPin/" + pinVal)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        set(ref(db, "PINResp"), {
+                            PIN: snapshot.val().ID,
+                            PINExpo: snapshot.val().IDExpo,
+                        })
+                    }
+                    else {
+                        alert("Error al buscar el PIN");
+                    }
+                })
+                    .catch((error) => {
+                        alert("ERROR " + error);
+                    });
+            }
+            genbtn.addEventListener('click', posPIN)
+
 
             function getData(PIN) {
                 const dbref = ref(db);
@@ -156,30 +177,18 @@
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
                         let type = snapshot.val().Type;
                         document.getElementById('volver').hidden = true;
+                        document.getElementById('Ins').hidden = false;
                         let text = "UeqShort";
-                        let nulo = "undefined";
-                        if(PIN.localeCompare(nulo) == 1){
                         if (text.localeCompare(type) == 0) {
                             loadUEQS();
                             displayFin();
                         }
-                        else 
-                        {
+                        else {
                             displaySig();
                             loadUEQ();
                         }
-                    }
-                    else{
+                    } else {
                         document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
-                        document.getElementById('descrip').hidden = true;
-                        document.getElementById('Ins').hidden = true;
-                        document.getElementById('volver').hidden = false;
-                    }
-                    }
-
-                    {
-                        document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
-                        document.getElementById('Ins').hidden = true;
                         document.getElementById('volver').hidden = false;
                     }
                 }).catch((error) => {
@@ -189,7 +198,7 @@
 
             function loadUEQS() {
                 var tbody = document.getElementById("listitem");
-                var html = 
+                var html =
                     '<tr>' +
                     '<th>1</th>' +
                     '<th>Obstructivo</th>' +
@@ -415,7 +424,7 @@
                     '<tr>' +
                     '<th>5</th>' +
                     '<th>Valioso</th>' +
-                    '<th>'+
+                    '<th>' +
                     '<div class="row">' +
                     '<label class="labelClassI">Valioso</label>' +
                     '<label class="labelClassD">De poco valor</label>' +

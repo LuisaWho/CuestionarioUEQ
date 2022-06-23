@@ -29,16 +29,17 @@ body {
 }
 
 h1 {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 35px;
     font-weight: 700;
     color: var(--color-azul);
     padding-left: 30px;
     padding-top: 10px;
     white-space: nowrap;
+    
 }
 
-h2 {  
+h2 {
     margin-left: 30px;
 }
 
@@ -135,11 +136,11 @@ input {
     margin-top: 150px;
 }
 
-h3{
+h3 {
     margin-top: 170px;
 }
 
-th{
+th {
     background-color: #b7ccff;
 }
 
@@ -162,7 +163,7 @@ td {
 
 }
 
-th{
+th {
     border: 1px solid;
 }
 
@@ -172,45 +173,28 @@ tr:nth-child(even) {
 
 @media only screen and (max-device-width: 480px) {
 
-    .cuestionario{
+    .cuestionario {
         width: 90%;
         margin-top: 100px;
     }
 
     .buscador {
-        width: 97%;
-        height: 30px;
-        flex-direction: column;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+       padding: 10px;
     }
 
-    button{
-         border-radius: 35px;
-         height: 150px;
-         font-size: 20px;
-
+    button {
+        margin-left: 0px;
     }
 
     h1 {
         font-size: 30px;
         white-space: nowrap;
+        padding-left: 0px;
     }
 
-    h2{
+    h2 {
         font-size: 20px;
-    }
-
-    .buscador {
-        width: 97%;
-        height: 30px;
-        flex-direction: column;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-left: 0px;
     }
 
     input {
@@ -219,7 +203,7 @@ tr:nth-child(even) {
         height: 35px;
         margin-top: 150px;
     }
-    
+
     textarea {
         font-size: 27px;
         width: 95%;
@@ -231,7 +215,7 @@ tr:nth-child(even) {
         display: none;
     }
 
-    td{
+    td {
         font-size: 28px;
         word-wrap: break-word;
     }

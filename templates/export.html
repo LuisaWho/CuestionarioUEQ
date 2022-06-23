@@ -32,33 +32,7 @@
 
         <h3> </h3>
         <table id = "tabla" class="listitem" hidden>
-            <trow>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>10</th>
-                <th>11</th>
-                <th>12</th>
-                <th>13</th>
-                <th>14</th>
-                <th>15</th>
-                <th>16</th>
-                <th>17</th>
-                <th>18</th>
-                <th>19</th>
-                <th>20</th>
-                <th>21</th>
-                <th>22</th>
-                <th>23</th>
-                <th>24</th>
-                <th>25</th>
-                <th>26</th>
+            
             </trow>
             
             <tbody id="answers">
@@ -102,11 +76,32 @@
         var btnCarga = document.getElementById("btnCargar");
         var btnExport = document.getElementById("btnExportar");
 
+        function loadUEQS(){
+            var tbodya = document.getElementById("answers");
+            var html = "<th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>"
+            tbodya.innerHTML = html;
+        }
+        
+        function loadUEQ(){
+            var tbodyb = document.getElementById("answers")
+            var html = "<th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>" +
+            "<th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th>" +
+            "<th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th>";
+            tbodyb.innerHTML = html;
+        }
 
         var tbody = document.getElementById("answers");
 
         function addAnsw(an1, an2, an3, an4, an5, an6, an7, an8, an9, an10, an11, an12, an13, an14, 
         an15, an16, an17, an18, an19, an20, an21, an22, an23, an24, an25, an26) {
+            let un = "undefined";
+            let str2 = an9;
+            if(un.localeCompare(str2) == 0){
+                loadUEQS();
+                addAnswS(an1, an2, an3, an4, an5, an6, an7, an8);
+            }
+            else{
+                loadUEQ();
             let trow = document.createElement("tr")
             let td1 = document.createElement("td");
             let td2 = document.createElement("td");
@@ -188,8 +183,42 @@
             trow.appendChild(td24);
             trow.appendChild(td25);
             trow.appendChild(td26);
-            tbody.appendChild(trow)
+            tbody.appendChild(trow);
+        }
+        }
+
+        function addAnswS(an1, an2, an3, an4, an5, an6, an7, an8){
+
             
+
+            let trow = document.createElement("tr")
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
+            let td6 = document.createElement("td");
+            let td7 = document.createElement("td");
+            let td8 = document.createElement("td");
+
+            td1.innerHTML = an1;
+            td2.innerHTML = an2;
+            td3.innerHTML = an3;
+            td4.innerHTML = an4;
+            td5.innerHTML = an5;
+            td6.innerHTML = an6;
+            td7.innerHTML = an7;
+            td8.innerHTML = an8;
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+            trow.appendChild(td6);
+            trow.appendChild(td7);
+            trow.appendChild(td8);
+            tbody.appendChild(trow)
         }
 
         function datos(answers) {
@@ -205,7 +234,7 @@
 
         function getData() {
             const dbref = ref(db);
-            get(child(dbref, PIN.value)).then((snapshot) => {
+            get(child(dbref, "RespuestasUEQ" + "/" + PIN.value)).then((snapshot) => {
                 var res = [];
                 snapshot.forEach(childSnapshot => {
                     res.push(childSnapshot.val());

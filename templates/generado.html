@@ -19,8 +19,11 @@
 
         <h2>PIN para entrar al cuestionario: </h2>
         <h2 id="PIN"></h2>
-        <button id="Copiar" class="copy">Copiar</button>
+        <br>
 
+        <h2>PIN para consulta</h2>
+        <h2 id="PINExpo"></h2>
+        <button id="Copiar" class="copy">Copiar</button>
         <h2>¡ATENCIÓN! Debe guardar dicho PIN para la consulta de resultados. </h2>
 
 
@@ -50,7 +53,8 @@
                     if (snapshot.exists()) {
                         document.getElementById('PIN').innerHTML = snapshot.val().ID;
                         document.getElementById('PIN').value = snapshot.val().ID;
-
+                        document.getElementById("PINExpo").innerHTML = snapshot.val().IDExpo;
+                        document.getElementById("PINExpo").value = snapshot.val().IDExpo;
                     }
                     else {
                         alert("Error al buscar el PIN");
@@ -63,7 +67,7 @@
             window.onload = SelectData;
 
             function myFunction() {
-                var copyText = document.getElementById("PIN");
+                var copyText = document.getElementById("PINExpo");
                 navigator.clipboard.writeText(copyText.value);
                 alert("PIN copiado: " + copyText.value);
             }

@@ -45,7 +45,7 @@
         function getPIN() {
             get(ref(db, "PINResp")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    Pin = snapshot.val().PIN;
+                    Pin = snapshot.val().PINExpo;
                     getData(Pin);
                 }
                 else {
@@ -62,7 +62,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResShort")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    set(ref(db, "ResCues/" + Pin + "/" + resID), {
+                    set(ref(db, "RespuestasUEQ/" + Pin + "/" + resID), {
                         item01: snapshot.val().item01,
                         item02: snapshot.val().item02,
                         item03: snapshot.val().item03,

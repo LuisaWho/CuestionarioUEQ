@@ -45,7 +45,7 @@
         function getPIN() {
             get(ref(db, "PINResp")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    Pin = snapshot.val().PIN;
+                    Pin = snapshot.val().PINExpo;
                     getData(Pin);
                     getData1(Pin);
                     getData2(Pin);
@@ -65,7 +65,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag0")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    update(ref(db,  Pin + "/" + resID), {
+                    update(ref(db, "RespuestasUEQ/" + Pin + "/" + resID), {
                         item01: snapshot.val().item01,
                         item02: snapshot.val().item02,
                         item03: snapshot.val().item03,
@@ -89,7 +89,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag1")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    update(ref(db,  Pin + "/" + resID), {
+                    update(ref(db, "RespuestasUEQ/" + Pin + "/" + resID), {
                         item08: snapshot.val().item08,
                         item09: snapshot.val().item09,
                         item10: snapshot.val().item10,
@@ -112,7 +112,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag2")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    update(ref(db,  Pin + "/" + resID), {
+                    update(ref(db, "RespuestasUEQ/" + Pin + "/" + resID), {
                         item15: snapshot.val().item15,
                         item16: snapshot.val().item16,
                         item17: snapshot.val().item17,
@@ -135,7 +135,7 @@
             const dbref = ref(db);
             get(child(dbref, "TemporalResUEQPag3")).then((snapshot) => {
                 if (snapshot.exists()) {
-                    update(ref(db, Pin + "/" + resID), {
+                    update(ref(db, "RespuestasUEQ/" + Pin + "/" + resID), {
                         item22: snapshot.val().item22,
                         item23: snapshot.val().item23,
                         item24: snapshot.val().item24,

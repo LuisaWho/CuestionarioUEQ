@@ -61,12 +61,24 @@
         var title = document.getElementById("Titulo");
         var descrip = document.getElementById("Descrip");
         var genbtn = document.getElementById("Genbtn");
-        var cuesID = Math.abs(Math.floor(Math.random() * (10000 + 99999) - 10000));
+        var cuesID = Math.abs(Math.floor(Math.random() * 99999) + 10000);
+        var rand = makeid(3);
 
-        function vaciarPIN(){
-                remove(ref(db, "ultPIN"));
+        function vaciarPIN() {
+            remove(ref(db, "ultPIN"));
+        }
+        window.onload = vaciarPIN;
+
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() *
+                    charactersLength));
             }
-            window.onload = vaciarPIN;
+            return result;
+        }
 
         function posData() {
             set(ref(db, "Cuestionarios/" + cuesID), {
@@ -74,7 +86,7 @@
                 Descrip: descrip.value,
                 Type: "Ueq",
                 CuestionarioID: cuesID,
-                url: "Url de la pagina"
+                IDExpo: cuesID + rand 
             })
                 .then(() => {
                     alert("Se ha creado correctamente el cuestionario");
@@ -85,9 +97,15 @@
         }
         genbtn.addEventListener('click', posData)
 
-        function posPIN(){
+        function posPIN() {
             set(ref(db, "ultPIN"), {
-                ID: cuesID
+                ID: cuesID,
+                IDExpo: cuesID + rand
+            })
+            set(ref(db, "ExportPin/" + cuesID), {
+                ID: cuesID,
+                IDExpo: cuesID + rand
+
             })
         }
         genbtn.addEventListener('click', posPIN)
@@ -109,7 +127,7 @@
             trow.appendChild(tdpro1);
             tdpunt = trow.insertCell();
             const radio = ['radio1', 'radio2', 'radio3', 'radio4', 'radio5', 'radio6', 'radio7'];
-            const valor = [1,2,3,4,5,6,7];
+            const valor = [1, 2, 3, 4, 5, 6, 7];
             tdpunt.innerHTML = radio.map((radio) => `<input type="radio" name="radio1" value=${valor} id=${radio}>`).join(' ');
             trow.appendChild(tdpro2);
             tbody.appendChild(trow);
