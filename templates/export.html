@@ -24,17 +24,14 @@
         <h1>Exportar resultados</h1>
         <h2>Introduzca el PIN del cuestionario que desea exportar los resultados</h2>
 
-
-<form>
         <div class="buscador">
             <input id="pin" type="text" placeholder="INTRODUZCA PIN" autofocus required />
             <button id="btnCargar">Cargar resultados</button>
             <button id="btnExportar" hidden>Exportar datos a Excel</button>
         </div>
-    </form>
 
         <h3> </h3>
-        <table id = "tabla" class="listitem">
+        <table id = "tabla" class="listitem" hidden>
             <trow>
                 <th>1</th>
                 <th>2</th>
@@ -105,9 +102,6 @@
         var btnCarga = document.getElementById("btnCargar");
         var btnExport = document.getElementById("btnExportar");
 
-        function displayExport() {
-            btnExport.hidden = false;
-        }
 
         var tbody = document.getElementById("answers");
 
@@ -215,13 +209,13 @@
                 var res = [];
                 snapshot.forEach(childSnapshot => {
                     res.push(childSnapshot.val());
-                    displayExport();
                 });
+                document.getElementById("btnExportar").hidden = false;
+                document.getElementById("tabla").hidden = false;
                 datos(res);
             });
         }
         btnCarga.addEventListener("click", getData)
-        
 
     </script>
 

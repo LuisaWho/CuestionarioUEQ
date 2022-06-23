@@ -16,6 +16,7 @@
         <h1 id="title"></h1>
         <p id="descrip"></p>
 
+        <div id="Ins">
         <h2>Instrucciones</h2>
         <p> El cuestionario se compone de pares de propiedades opuestas que el producto puede tener. <br>
             Usted puede expresar su conformidad con una propiedad marcando uno de los círculos que mejor refleje su impresión.<br>
@@ -32,6 +33,7 @@
             que no son aplicables o que hay propiedades parecidas o iguales. <br>
             <b>Recuerde: ¡no hay respuesta correcta o 
             incorrecta!</b></p>
+        </div>
 
 
         <table id="listitem" class = "tableStyle">
@@ -43,6 +45,10 @@
 
         <a href="./respuestapag1.html" class="pagsig">
             <button id="Siguiente" class="env" type="submit" hidden>Siguiente página</button>
+        </a>
+
+        <a href="../index.html" class="pagsig">
+            <button id="volver" class="pagvolv" type="submit" hidden>Volver a la página principal</button>
         </a>
 
 
@@ -149,18 +155,32 @@
                         document.getElementById('title').innerHTML = snapshot.val().Titulo;
                         document.getElementById('descrip').innerHTML = snapshot.val().Descrip;
                         let type = snapshot.val().Type;
+                        document.getElementById('volver').hidden = true;
                         let text = "UeqShort";
+                        let nulo = "undefined";
+                        if(PIN.localeCompare(nulo) == 1){
                         if (text.localeCompare(type) == 0) {
                             loadUEQS();
                             displayFin();
                         }
-                        else {
+                        else 
+                        {
                             displaySig();
                             loadUEQ();
                         }
                     }
-                    else {
+                    else{
                         document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
+                        document.getElementById('descrip').hidden = true;
+                        document.getElementById('Ins').hidden = true;
+                        document.getElementById('volver').hidden = false;
+                    }
+                    }
+
+                    {
+                        document.getElementById('title').innerHTML = "Error: El cuestionario no existe, compruebe su PIN y vuelve a intentarlo";
+                        document.getElementById('Ins').hidden = true;
+                        document.getElementById('volver').hidden = false;
                     }
                 }).catch((error) => {
                     alert("ERROR " + error);

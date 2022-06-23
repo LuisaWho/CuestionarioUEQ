@@ -38,6 +38,10 @@ h1 {
 
 }
 
+a{
+    text-decoration: none;
+}
+
 button {
     width: 25%;
     height: 45px;
@@ -78,7 +82,9 @@ button:hover {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.025);
 }
 
-
+.pagvolv{
+    margin-right: 20%;
+}
 
 .tableStyle{
     justify-content: center;
