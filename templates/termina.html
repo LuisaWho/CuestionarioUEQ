@@ -63,14 +63,14 @@
             get(child(dbref, "TemporalResShort")).then((snapshot) => {
                 if (snapshot.exists()) {
                     set(ref(db, "ResCues/" + Pin + "/" + resID), {
-                        item1: snapshot.val().item1,
-                        item2: snapshot.val().item2,
-                        item3: snapshot.val().item3,
-                        item4: snapshot.val().item4,
-                        item5: snapshot.val().item5,
-                        item6: snapshot.val().item6,
-                        item7: snapshot.val().item7,
-                        item8: snapshot.val().item8,
+                        item01: snapshot.val().item01,
+                        item02: snapshot.val().item02,
+                        item03: snapshot.val().item03,
+                        item04: snapshot.val().item04,
+                        item05: snapshot.val().item05,
+                        item06: snapshot.val().item06,
+                        item07: snapshot.val().item07,
+                        item08: snapshot.val().item08,
 
                     }).then(() => {
                         alert("Se han enviado las respuestas correctamente");
